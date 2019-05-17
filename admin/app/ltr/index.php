@@ -162,9 +162,9 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tabelaONGs.php" aria-expanded="false">
                                 <i class="mdi mdi-border-none"></i>
-                                <span class="hide-menu">ONGs</span>
+                                <span class="hide-menu">Listagem de ONGs</span>
                             </a>
                         </li>
                         <!--<li class="sidebar-item">
