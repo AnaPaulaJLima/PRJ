@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -51,7 +54,7 @@
                     <!-- Logo -->
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
-                        <a href="index.php" class="logo">
+                        <a href="indexAdm.php" class="logo">
                             <!-- Logo icon -->
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -88,10 +91,8 @@
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <ul class="navbar-nav float-left mr-auto">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
+                    <!--<ul class="navbar-nav float-left mr-auto">
+                        
                         <li class="nav-item search-box">
                             <a class="nav-link waves-effect waves-dark" href="javascript:void(0)">
                                 <div class="d-flex align-items-center">
@@ -112,10 +113,8 @@
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
-                    <ul class="navbar-nav float-right">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
+                    <!--<ul class="navbar-nav float-right">
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
@@ -124,13 +123,11 @@
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
                             </div>
                         </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                    </ul>
+                        
+                    </ul>-->
                 </div>
             </nav>
-        </header>
+        </header>-->
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -143,12 +140,12 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <!--<li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="indexAdm.php" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
-                                <span class="hide-menu">Dashboard</span>
+                                <span class="hide-menu">Inicio</span>
                             </a>
-                        </li>-->
+                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="perfil.php" aria-expanded="false">
                                 <i class="mdi mdi-account-network"></i>
@@ -197,10 +194,7 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+        <!--<div class="page-wrapper">
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
@@ -220,16 +214,9 @@
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
+            
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Email campaign chart -->
-                <!-- ============================================================== -->
+                
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card">
@@ -269,14 +256,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- Email campaign chart -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Ravenue - page-view-bounce rate -->
-                <!-- ============================================================== -->
                 <div class="row">
-                    <!-- column -->
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -341,21 +321,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- Ravenue - page-view-bounce rate -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
                 <div class="row">
-                    <!-- column -->
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Recent Comments</h4>
                             </div>
                             <div class="comment-widgets" style="height:430px;">
-                                <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row m-t-0">
                                     <div class="p-2">
                                         <img src="../../assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle">
@@ -380,7 +352,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Comment Row -->
+                                
                                 <div class="d-flex flex-row comment-row">
                                     <div class="p-2">
                                         <img src="../../assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle">
@@ -405,7 +377,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row">
                                     <div class="p-2">
                                         <img src="../../assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle">
@@ -430,7 +401,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row m-t-0">
                                     <div class="p-2">
                                         <img src="../../assets/images/users/2.jpg" alt="user" width="50" class="rounded-circle">
@@ -458,7 +428,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- column -->
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
@@ -516,28 +485,16 @@
 
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
+                
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
+            
             <footer class="footer text-center">
                 All Rights Reserved by Nice admin. Designed and Developed by
                 <a href="https://wrappixel.com">WrapPixel</a>.
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+            
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
+    </div>-->
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->

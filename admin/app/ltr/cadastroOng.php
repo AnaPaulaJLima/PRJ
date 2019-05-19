@@ -52,17 +52,22 @@ function verificaFields(){
     $imagem = $resultado;
     $ativo = $_POST['radioBtnStatus'];
 
-      $inserir = "INSERT INTO ong ";
-      $inserir .= "(nome_fantasia, ano_fundacao,descricao,imagem,ativo) ";
-      $inserir .= "VALUES ";
-      $inserir .= "('$nome','$ano', '$descricao','$imagem','$ativo')";
+    if($ativo == "sim")
+        $ativo = true;
+    else
+        $stivo = false;
+
+    $inserir = "INSERT INTO ong ";
+    $inserir .= "(nome_fantasia, ano_fundacao,descricao,imagem,ativo) ";
+    $inserir .= "VALUES ";
+    $inserir .= "('$nome','$ano', '$descricao','$imagem','$ativo')";
 
       $queryInserir = mysqli_query($conecta, $inserir);
       if(!$queryInserir) {
         die("Erro na inserção");
       } else {
         $mensagem = "Inserção ocorreu com sucesso.";
-        /*header("location: index.html");*/
+        header("location: tabelaONGs.php");
       }
 
       // Fechar as queries

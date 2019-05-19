@@ -32,26 +32,13 @@
     $arquivo_tmp = $imagem["tmp_name"];
     $nome_original = basename( $imagem["name"] );
     $nome_novo = gerarCodigoUnico() . getExtensao($nome_original);
-    $nome_completo = "../assets/images" . $nome_novo;
+    $nome_completo = "../../../img/" . $nome_novo;
 
     move_uploaded_file($arquivo_tmp, $nome_completo);
-
-    /*if(move_uploaded_file($arquivo_tmp, $nome_completo)){
-      return ("Imagem publicada com sucesso");
-    }else {
-      return ( mostrarAvisoPublicacao( $imagem['error'] ));
-    }*/
-
-    
 
     return $nome_completo;
 
   }
-
-    /**/
-
-    /*return $mensagem;*/
-  
 
    function mostrarAvisoPublicacao( $numero ) {
     // Array com possiveis erros ao fazer upload de arquivo para PHP
