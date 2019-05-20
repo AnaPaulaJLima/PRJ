@@ -5,13 +5,13 @@
 
   require_once("connection.php");
 
- $consulta = "SELECT * FROM ONG WHERE id = '$ID';";
+ $consulta = "SELECT * FROM ONG WHERE id = '{$ID}';";
  $query = $conecta->query($consulta);
   if(!$query) {
       die("falha na consulta ao banco");    
   }
 
-  $ong = mysqli_fetch_object($query);
+  $ong = mysqli_fetch_assoc($query);
 
 ?>
 
@@ -221,18 +221,15 @@
                             <form class="form-horizontal m-t-30" action="update.php" method="POST" role="form" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Nome Fantasia</label>
-                                    <?php 
-                                        $nome = $ong->nome_fantasia;
-                                    ?>
-                                    <input type="text" class="form-control" name="nome" value="<?php echo $nome?>">
+                                    <input type="text" class="form-control" name="nome" value="<?php echo $ong ['nome_fantasia']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Ano de Fundação</label>
-                                    <input type="text" class="form-control" name="ano" value="<?php echo $ong->ano_fundacao?>">
+                                    <input type="text" class="form-control" name="ano" value="<?php echo $ong ['ano_fundacao']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Descrição/Quem somos</label>
-                                    <textarea class="form-control" name="descricao" rows="20" value="<?php echo $ong->descricao?>"></textarea>
+                                    <textarea class="form-control" name="descricao" rows="20" value="<?php echo $ong ['descricao']?>"></textarea>
                                 </div>
                                 <div class="form-group row p-t-20">
                                     <div class="col-sm-4">

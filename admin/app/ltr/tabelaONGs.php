@@ -258,12 +258,12 @@
                                     </thead>
                                     <tbody>
                                         <?php 
-                                        while($listOng = mysqli_fetch_object($query)){ ?>
+                                        while($listOng = mysqli_fetch_assoc($query)){ ?>
                                             <tr>
-                                                <th scope="row"><?php echo $listOng->id ?></th>
-                                                <td><?php echo $listOng->nome_fantasia ?></td>
-                                                <td><?php echo $listOng->ativo ?></td>
-                                                <td><a href="editarOng.php?id=$listOng->id" aria-expanded="false"><i class="fas fa-edit"></i></a></td>
+                                                <th scope="row"><?php echo $listOng['id'] ?></th>
+                                                <td><?php echo $listOng['nome_fantasia'] ?></td>
+                                                <td><?php echo $listOng['ativo'] ?></td>
+                                                <td><a href="editarOng.php?id=$listOng['id']" aria-expanded="false"><i class="fas fa-edit"></i></a></td>
                                         
                                             </tr> 
                                             <?php } ?>
