@@ -257,7 +257,7 @@
                                 <div class="form-group">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-success">Cadastrar</button>
-                                            <button class="btn btn-link">Cancelar</button>
+                                            <a href="tabelaONGs.php" class="btn btn-link">Cancelar</a>
                                         </div>
                                 </div>
                             </form>

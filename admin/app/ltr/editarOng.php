@@ -30,6 +30,7 @@
     <title>AmigoSolidario - Gerencial</title>
     <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     
 </head>
 
@@ -90,43 +91,7 @@
                 <!-- End Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <!--<ul class="navbar-nav float-left mr-auto">
-                        
-                        <li class="nav-item search-box">
-                            <a class="nav-link waves-effect waves-dark" href="javascript:void(0)">
-                                <div class="d-flex align-items-center">
-                                    <i class="mdi mdi-magnify font-20 mr-1"></i>
-                                    <div class="ml-1 d-none d-sm-block">
-                                        <span>Search</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <form class="app-search position-absolute">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter">
-                                <a class="srh-btn">
-                                    <i class="ti-close"></i>
-                                </a>
-                            </form>
-                        </li>
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <!--<ul class="navbar-nav float-right">
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
-                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
-                            </div>
-                        </li>
-                        
-                    </ul>-->
+                    
                 </div>
             </nav>
         </header>-->
@@ -162,28 +127,22 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tabelaONGs.php" aria-expanded="false">
-                                <i class="mdi mdi-border-none"></i>
+                                <i class="fas fa-list"></i>
                                 <span class="hide-menu">Listagem de ONGs</span>
                             </a>
                         </li>
-                        <!--<li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="icon-material.html" aria-expanded="false">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cadastrarUser.php" aria-expanded="false">
                                 <i class="mdi mdi-face"></i>
-                                <span class="hide-menu">Icon</span>
+                                <span class="hide-menu">Cadastrar Usuário ADM</span>
                             </a>
-                        </li>-->
-                        <!--<li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="starter-kit.html" aria-expanded="false">
-                                <i class="mdi mdi-file"></i>
-                                <span class="hide-menu">Blank</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="listUsers.php" aria-expanded="false">
+                                <i class="fas fa-list"></i>
+                                <span class="hide-menu">Gerenciamento Usuários ADM</span>
                             </a>
-                        </li>-->
-                        <!--<li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="error-404.html" aria-expanded="false">
-                                <i class="mdi mdi-alert-outline"></i>
-                                <span class="hide-menu">404</span>
-                            </a>
-                        </li>-->
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -229,7 +188,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Descrição/Quem somos</label>
-                                    <textarea class="form-control" name="descricao" rows="20" value="<?php echo $ong ['descricao']?>"></textarea>
+                                    <textarea class="form-control" name="descricao" rows="20"><?php echo $ong ['descricao']?></textarea>
                                 </div>
                                 <div class="form-group row p-t-20">
                                     <div class="col-sm-4">
@@ -250,8 +209,8 @@
                                 </div>
                                 <div class="form-group">
                                         <div class="col text-right">
-                                            <button type="submit" class="btn btn-success">Cadastrar</button>
-                                            <button class="btn btn-link">Cancelar</button>
+                                            <button type="submit" class="btn btn-success">Editar</button>
+                                            <a href="tabelaONGs.php" class="btn btn-link">Cancelar</a>
                                         </div>
                                 </div>
                             </form>

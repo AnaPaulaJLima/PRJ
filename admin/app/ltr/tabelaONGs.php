@@ -181,7 +181,7 @@
                                                 <th scope="row"><?php echo $listOng['id'] ?></th>
                                                 <td><?php echo $listOng['nome_fantasia'] ?></td>
                                                 <td><?php echo $listOng['ativo'] ?></td>
-                                                <td><a href="editarOng.php?"<?php.$listOng['id']?>><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="editarOng.php?id=<?= $listOng['id']?>"> <i class="fas fa-edit"></i></a></td>
                                         
                                             </tr> 
                                             <?php } ?>

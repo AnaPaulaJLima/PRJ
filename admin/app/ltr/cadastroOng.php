@@ -51,7 +51,7 @@ function verificaFields(){
     $descricao = $_POST['descricao'];
     $imagem = $resultado;
     $ativo = $_POST['radioBtnStatus'];
-
+    
     if($ativo == "sim")
         $ativo = true;
     else
