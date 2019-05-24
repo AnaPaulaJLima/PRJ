@@ -3,9 +3,9 @@
 
   require_once("connection.php");
 
-  $ongs = "SELECT * FROM ONG;";
+  $users = "SELECT * FROM usuario WHERE admin='1';";
 
-  $query = $conecta->query($ongs);
+  $query = $conecta->query($users);
   if(!$query) {
       die("falha na consulta ao banco");   
   }
@@ -24,7 +24,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
-    <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
+    <title>AmigoSolidario</title>
     <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -136,18 +136,18 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Listagem de ONGs</h4>
+                        <h4 class="page-title">Listagem de Usuários ADM</h4>
                         <br>
-                        <h6 class="card-title text-center">Lista de todas as ONGs cadastradas na plataforma</h6>
+                        <h6 class="card-title text-center">Lista de todas os usuário ADM cadastradas na plataforma</h6>
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="#">Home</a>
+                                        <a href="indexAdm.php">Inicio</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Listagem ONGs</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Listagem Usuário ADM</li>
                                 </ol>
                             </nav>
                         </div>
@@ -161,7 +161,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title text-center">ONGs</h4>
+                                <h4 class="card-title text-center">Usuários</h4>
                                 
                             </div>
                             <div class="table-responsive">
@@ -169,19 +169,21 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Codigo</th>
-                                            <th scope="col">Nome Fantasia</th>
-                                            <th scope="col">Ativo/Inativo</th>
+                                            <th scope="col">Nome Completo</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Celular</th>
                                             <th scope="col">Edição</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php 
-                                        while($listOng = mysqli_fetch_assoc($query)){ ?>
+                                        while($listUsers = mysqli_fetch_assoc($query)){ ?>
                                             <tr>
-                                                <th scope="row"><?php echo $listOng['id'] ?></th>
-                                                <td><?php echo $listOng['nome_fantasia'] ?></td>
-                                                <td><?php echo $listOng['ativo'] ?></td>
-                                                <td><a href="editarOng.php?"<?php.$listOng['id']?>><i class="fas fa-edit"></i></a></td>
+                                                <th scope="row"><?php echo $listUsers['id'] ?></th>
+                                                <td><?php echo $listUsers['nome'] ?></td>
+                                                <td><?php echo $listUsers['email'] ?></td>
+                                                <td><?php echo $listUsers['celular'] ?></td>
+                                                <td><a href="editarOng.php?id=$listUsers['id']" aria-expanded="false"><i class="fas fa-edit"></i></a></td>
                                         
                                             </tr> 
                                             <?php } ?>

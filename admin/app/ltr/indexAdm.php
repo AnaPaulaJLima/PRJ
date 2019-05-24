@@ -18,6 +18,7 @@
     <link href="../../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -160,16 +161,22 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tabelaONGs.php" aria-expanded="false">
-                                <i class="mdi mdi-border-none"></i>
+                                <i class="fas fa-list"></i>
                                 <span class="hide-menu">Listagem de ONGs</span>
                             </a>
                         </li>
-                        <!--<li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="icon-material.html" aria-expanded="false">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cadastrarUser.php" aria-expanded="false">
                                 <i class="mdi mdi-face"></i>
-                                <span class="hide-menu">Icon</span>
+                                <span class="hide-menu">Cadastrar Usuário ADM</span>
                             </a>
-                        </li>-->
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="listUsers.php" aria-expanded="false">
+                                <i class="fas fa-list"></i>
+                                <span class="hide-menu">Gerenciamento Usuários ADM</span>
+                            </a>
+                        </li>
                         <!--<li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="starter-kit.html" aria-expanded="false">
                                 <i class="mdi mdi-file"></i>

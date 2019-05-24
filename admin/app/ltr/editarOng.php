@@ -5,7 +5,7 @@
 
   require_once("connection.php");
 
- $consulta = "SELECT * FROM ONG WHERE id = '{$ID}';";
+ $consulta = "SELECT * FROM ONG WHERE id = '{$ID}' ;";
  $query = $conecta->query($consulta);
   if(!$query) {
       die("falha na consulta ao banco");    
