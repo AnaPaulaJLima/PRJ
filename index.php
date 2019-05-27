@@ -1,6 +1,28 @@
 <?php
   session_start();
+  require_once("connection/connection.php");
+  $query1 = "SELECT * FROM ong WHERE id = '1';";
+
+  $ongHospital = $conecta->query($query1);
+  if(!$ongHospital) {
+      die("falha na consulta ao banco");   
+  }
+
+  $query2 = "SELECT * FROM ong WHERE id = '2';";
+
+  $ongFrasol = $conecta->query($query2);
+  if(!$ongFrasol) {
+      die("falha na consulta ao banco");   
+  }
+
+  $query3 = "SELECT * FROM ong WHERE id = '3';";
+
+  $ongIrmas = $conecta->query($query3);
+  if(!$ongIrmas) {
+      die("falha na consulta ao banco");   
+  }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -330,14 +352,14 @@
         <div class="carousel-item-b">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
-              <img src="img/hospitalFA.jpg" alt="" class="img-a img-fluid">
+              <img src="img/foto_2019_145205841_2DK9P8MA89HE5PRJJDGKCMNDFCNQ7.jpg" alt="imagem ong" class="img-a img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">
                 <div class="card-header-a">
                   <h2 class="card-title-a">
                     <a href="hospitalretaguarda.php">Hospital de Retaguarda 
-                      <br /> Francisco de Assis</a>
+                      <br /> Francisco de Assis </a>
                   </h2>
                 </div>
                 <div class="card-body-a">
@@ -352,7 +374,7 @@
         <div class="carousel-item-b">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
-              <img src="img/Frasol.png" alt="" class="img-a img-fluid">
+              <img src="img/foto_2019_14518104_8DBQJACRDKQQCF7RJHJ45H8G6QM4Q.png" alt="" class="img-a img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">
@@ -373,7 +395,7 @@
         <div class="carousel-item-b">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
-              <img src="img/AssociacaoSFA.jpg" alt="" class="img-a img-fluid">
+              <img src="img/foto_2019_145181058_44NPKC6PEHDD9MJ6JHJCG8BP272M3.jpg" alt="" class="img-a img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">

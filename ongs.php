@@ -1,10 +1,10 @@
 <?php
   session_start();
   require_once("connection/connection.php");
-  $list = "select * from ong";
+  $query = "SELECT * FROM ong WHERE ativo = '1';";
 
-  $querylist = $conecta->query($list);
-  if(!$querylist) {
+  $listOng = $conecta->query($query);
+  if(!$listOng) {
       die("falha na consulta ao banco");   
   }
 ?>
@@ -209,7 +209,7 @@
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="#">Home</a>
+                <a href="index.php">Home</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 ONGs
@@ -238,19 +238,24 @@
                 </form>
               </div>
             </div>
+            <div class="col-md-4">
             <?php
-                while( $ongs = mysqli_fetch_assoc($querylist) ) {
+                while( $ongs = mysqli_fetch_assoc($listOng)) {
+
+                  $fotoComplet = $ongs ['imagem'];
+                  $arraFoto = preg_split('/\//', $fotoComplet);
+                  $foto = 'img/' . $arraFoto[4];
             ?>
-            <div class="col-md-4">
-              <div class="card-box-a card-shadow">
+              <div class="card-box-a card-shadow" style="width: 20rem">
                 <div class="img-box-a">
-                  <img src="<?php echo $ongs['imagem'] ?>" alt="" class="img-a img-fluid">
+                  <img src="<?php echo $foto ?>" alt="imagem da ong" class="img-a img-fluid">
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="property-single.html"><?php echo $ongs['nome'] ?></a>
+                        <a href="property-single.html"><?php echo $ongs['nome_fantasia'] ?>
+                          <br /> </a>
                       </h2>
                     </div>
                     <div class="card-body-a">
@@ -262,119 +267,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="img/Frasol.png" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="property-single.html">Frasol
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <a href="property-single.html" class="link-a">Saber mais
-                        <span class="ion-ios-arrow-forward"></span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="img/AssociacaoSFA.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="property-single.html">Associação 
-                          <br /> São Francisco de Assis Gewo-Haus</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <a href="property-single.html" class="link-a">Saber Mais
-                        <span class="ion-ios-arrow-forward"></span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="img/cidadao.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="property-single.html">ONG Grande 
-                          <br /> Cidadão</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <a href="property-single.html" class="link-a">Saber Mais
-                        <span class="ion-ios-arrow-forward"></span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="img/vicentinos.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="property-single.html">Lar dos
-                          <br /> Vicentinos</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <a href="property-single.html" class="link-a">Saber Mais
-                        <span class="ion-ios-arrow-forward"></span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="img/estendidas.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="property-single.html">Programa Mãos
-                          <br /> Estendidas - PME</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <a href="property-single.html" class="link-a">Saber Mais
-                        <span class="ion-ios-arrow-forward"></span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="col-md-4">  
+          <?php } ?>
           </div>
-          <?php
-          }
-          ?>
           <div class="row">
             <div class="col-sm-12">
               <nav class="pagination-a">

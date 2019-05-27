@@ -45,25 +45,26 @@ function verificaFields(){
     /*console.log($mensagem);*/
 
 
-
+    $id = $_POST['id'];
     $nome = $_POST['nome'];
     $ano = $_POST['ano'];
     $descricao = $_POST['descricao'];
     $imagem = $resultado;
     $ativo = $_POST['radioBtnStatus'];
     
+    
     if($ativo == "sim")
         $ativo = true;
     else
-        $ativo = false;
+        $stivo = false;
 
-    $inserir = "INSERT INTO ong ";
-    $inserir .= "(nome_fantasia, ano_fundacao,descricao,imagem,ativo) ";
-    $inserir .= "VALUES ";
-    $inserir .= "('$nome','$ano', '$descricao','$imagem','$ativo')";
+    $update = "UPDATE ong SET nome_fantasia = '$nome', ano_fundacao = '$ano', ";
+    $update .= "descricao = '$descricao', imagem ='$imagem', ativo = '$ativo' ";
+    $update .= "WHERE ";
+    $update .= "id = '$id'";
 
-      $queryInserir = mysqli_query($conecta, $inserir);
-      if(!$queryInserir) {
+      $queryUpdate = mysqli_query($conecta, $update);
+      if(!$queryUpdate) {
         die("Erro na inserção");
       } else {
         $mensagem = "Inserção ocorreu com sucesso.";
@@ -71,7 +72,7 @@ function verificaFields(){
       }
 
       // Fechar as queries
-    mysqli_free_result($queryInserir);
+    mysqli_free_result($queryUpdate);
     mysqli_free_result($result);
 
     // Fechar conexao

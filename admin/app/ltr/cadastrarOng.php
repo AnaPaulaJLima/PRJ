@@ -16,6 +16,7 @@
     <title>AmigoSolidario - Gerencial</title>
     <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -52,23 +53,23 @@
                     <!-- Logo -->
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
-                        <a href="indexAdm.php" class="logo">
+                    <a href="indexAdm.php" class="logo">
                             <!-- Logo icon -->
                             <b class="logo-icon">
-                                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                                <!-- Dark Logo icon -->
-                                <img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                                <!-- Light Logo icon -->
-                                <img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                                <!--<h4 class="page-title">AmigoSolidário</h4>-->
+                                AmigoSolidário
+                                <!--<img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />-->
+                                 
+                                <!--<img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />-->
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text -->
-                            <span class="logo-text">
-                                <!-- dark Logo text -->
+                            <!--<span class="logo-text">
+                                 dark Logo text 
                                 <img src="../../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                                <!-- Light Logo text -->
+                                Light Logo text 
                                 <img src="../../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                            </span>
+                            </span>-->
                         </a>
                     </div>
                     <!-- ============================================================== -->
@@ -166,6 +167,12 @@
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cadastrarUser.php" aria-expanded="false">
                                 <i class="mdi mdi-face"></i>
                                 <span class="hide-menu">Cadastrar Usuário</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="listUsers.php" aria-expanded="false">
+                                <i class="fas fa-list"></i>
+                                <span class="hide-menu">Gerenciamento Usuários ADM</span>
                             </a>
                         </li>
                     </ul>

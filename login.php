@@ -15,7 +15,7 @@
     //Compara as informações do form com banco de dados
     $login = "select * ";
     $login .= "from usuario ";
-    $login .= "where email = '{$email}' and senha = '{$senha}' ";
+    $login .= "where email = '{$email}' and senha = '{$senha}' and admin = 0 ";
     $acesso =  mysqli_query($conecta, $login);
 
     var_dump($login);

@@ -57,23 +57,23 @@
                     <!-- Logo -->
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
-                        <a href="indexAdm.php" class="logo">
+                    <a href="indexAdm.php" class="logo">
                             <!-- Logo icon -->
                             <b class="logo-icon">
-                                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                                <!-- Dark Logo icon -->
-                                <img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                                <!-- Light Logo icon -->
-                                <img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                                <!--<h4 class="page-title">AmigoSolidário</h4>-->
+                                AmigoSolidário
+                                <!--<img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />-->
+                                 
+                                <!--<img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />-->
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text -->
-                            <span class="logo-text">
-                                <!-- dark Logo text -->
+                            <!--<span class="logo-text">
+                                 dark Logo text 
                                 <img src="../../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                                <!-- Light Logo text -->
+                                Light Logo text 
                                 <img src="../../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                            </span>
+                            </span>-->
                         </a>
                     </div>
                     <!-- ============================================================== -->
@@ -177,7 +177,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card card-body">
-                            <form class="form-horizontal m-t-30" action="update.php" method="POST" role="form" enctype="multipart/form-data">
+                            <form class="form-horizontal m-t-30" action="updateOng.php" method="POST" role="form" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Nome Fantasia</label>
                                     <input type="text" class="form-control" name="nome" value="<?php echo $ong ['nome_fantasia']?>">
@@ -190,15 +190,16 @@
                                     <label>Descrição/Quem somos</label>
                                     <textarea class="form-control" name="descricao" rows="20"><?php echo $ong ['descricao']?></textarea>
                                 </div>
+                                
                                 <div class="form-group row p-t-20">
                                     <div class="col-sm-4">
                                         <label>Status</label>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="radioBtnStatus" class="custom-control-input">
+                                            <input type="radio" id="customRadio1" name="radioBtnStatus" value="sim" class="custom-control-input" <?php if($ong ['ativo'] == '1')echo "checked=\"checked\"" ?>>
                                             <label class="custom-control-label" for="customRadio1">Ativado</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="radioBtnStatus" class="custom-control-input">
+                                            <input type="radio" id="customRadio2" name="radioBtnStatus" value="nao" class="custom-control-input" <?php if($ong ['ativo'] == '0')echo "checked=\"checked\"" ?>>
                                             <label class="custom-control-label" for="customRadio2">Desativado</label>
                                         </div>
                                     </div>
@@ -207,6 +208,7 @@
                                     <label>Imagem</label>
                                     <input type="file" class="form-control" name="foto">
                                 </div>
+                                <input type="hidden" class="form-control" name="id" value="<?php echo $ID?>">
                                 <div class="form-group">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-success">Editar</button>
