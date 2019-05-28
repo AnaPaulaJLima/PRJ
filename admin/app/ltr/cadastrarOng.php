@@ -258,8 +258,14 @@
                                     </select>
                                 </div>-->
                                 <div class="form-group">
-                                    <label>Imagem</label>
-                                    <input type="file" class="form-control" name="foto">
+                                    <label>Imagem de exibição principal</label>
+                                    <input type="file" class="form-control" name="foto_prin">
+                                </div>
+                                <div class="form-group">
+                                    <label>Imagens de exibição secundario - Maximo duas (Imagens a serem exibidas na tela de informações sobre a ong)</label>
+                                    <input type="file" class="form-control" name="foto_sec1">
+                                    <br>
+                                    <input type="file" class="form-control" name="foto_sec2">
                                 </div>
                                 <div class="form-group">
                                         <div class="col text-right">

@@ -23,7 +23,17 @@ function verificaFields(){
     }else{
       return false;
     }
-    if(isset($_FILES["foto"]) ){
+    if(isset($_FILES["foto_prin"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["foto_sec1"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["foto_sec2"]) ){
       return true;
     }else{
       return false;
@@ -38,18 +48,23 @@ function verificaFields(){
     $result = $conecta->query($queryUser);
     $id = mysqli_fetch_assoc($result);
     $id_usuario = $id['id'];*/
-    $resultado = publicarArquivo($_FILES["foto"]);
+    $resultado_prin = publicarArquivo($_FILES["foto_prin"]);
+    $mensagem_prin = $resultado_prin[0];
 
-    $mensagem = $resultado[0];
+    $resultado_sec1 = publicarArquivo($_FILES["foto_sec1"]);
+    $mensagem_sec1 = $resultado_sec1[0];
 
-    /*console.log($mensagem);*/
+    $resultado_sec2 = publicarArquivo($_FILES["foto_sec2"]);
+    $mensagemsec2 = $resultado_sec2[0];
 
 
     $id = $_POST['id'];
     $nome = $_POST['nome'];
     $ano = $_POST['ano'];
     $descricao = $_POST['descricao'];
-    $imagem = $resultado;
+    $imagem_prin = $resultado_prin;
+    $imagem_sec1 = $resultado_sec1;
+    $imagem_sec2 = $resultado_sec2;
     $ativo = $_POST['radioBtnStatus'];
     
     
@@ -59,7 +74,8 @@ function verificaFields(){
         $stivo = false;
 
     $update = "UPDATE ong SET nome_fantasia = '$nome', ano_fundacao = '$ano', ";
-    $update .= "descricao = '$descricao', imagem ='$imagem', ativo = '$ativo' ";
+    $update .= "descricao = '$descricao', imagem_principal ='$imagem_prin', ";
+    $update .= "ativo = '$ativo', imagem_sec1 ='$imagem_sec1', imagem_sec2 ='$imagem_sec2'";
     $update .= "WHERE ";
     $update .= "id = '$id'";
 

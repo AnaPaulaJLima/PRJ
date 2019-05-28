@@ -23,7 +23,17 @@ function verificaFields(){
     }else{
       return false;
     }
-    if(isset($_FILES["foto"]) ){
+    if(isset($_FILES["foto_prin"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["foto_sec1"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["foto_sec2"]) ){
       return true;
     }else{
       return false;
@@ -38,18 +48,21 @@ function verificaFields(){
     $result = $conecta->query($queryUser);
     $id = mysqli_fetch_assoc($result);
     $id_usuario = $id['id'];*/
-    $resultado = publicarArquivo($_FILES["foto"]);
+    $resultado_prin = publicarArquivo($_FILES["foto_prin"]);
+    $mensagem_prin = $resultado_prin[0];
 
-    $mensagem = $resultado[0];
+    $resultado_sec1 = publicarArquivo($_FILES["foto_sec1"]);
+    $mensagem_sec1 = $resultado_sec1[0];
 
-    /*console.log($mensagem);*/
-
-
+    $resultado_sec2 = publicarArquivo($_FILES["foto_sec2"]);
+    $mensagemsec2 = $resultado_sec2[0];
 
     $nome = $_POST['nome'];
     $ano = $_POST['ano'];
     $descricao = $_POST['descricao'];
-    $imagem = $resultado;
+    $imagem_prin = $resultado_prin;
+    $imagem_sec1 = $resultado_sec1;
+    $imagem_sec2 = $resultado_sec2;
     $ativo = $_POST['radioBtnStatus'];
     
     if($ativo == "sim")
@@ -58,9 +71,9 @@ function verificaFields(){
         $ativo = false;
 
     $inserir = "INSERT INTO ong ";
-    $inserir .= "(nome_fantasia, ano_fundacao,descricao,imagem,ativo) ";
+    $inserir .= "(nome_fantasia, ano_fundacao,descricao,imagem_principal, ativo, imagem_se1, imagem_sec2) ";
     $inserir .= "VALUES ";
-    $inserir .= "('$nome','$ano', '$descricao','$imagem','$ativo')";
+    $inserir .= "('$nome','$ano', '$descricao','$imagem_prin','$ativo','$imagem_sec1','$imagem_sec2')";
 
       $queryInserir = mysqli_query($conecta, $inserir);
       if(!$queryInserir) {
