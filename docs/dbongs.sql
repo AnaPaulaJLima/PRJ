@@ -39,23 +39,27 @@ ALTER TABLE ong ADD COLUMN imagem_sec1 VARCHAR(255);
 
 CREATE TABLE `doacao`(
     `id`            INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `valor`         FLOAT,
-    `tipo_pagamento` INTEGER,       
     `id_usuario`    INTEGER, 
     `id_ong`        INTEGER,
+    `valor`         FLOAT,
+    `tipo_pagamento` INTEGER,       
+    `hora`          TIME,
+
     FOREIGN KEY(`id_usuario`) REFERENCES `usuario`(`id`),
-    FOREIGN KEY(`id_ong`) REFERENCES `ong` (`id`)
+    FOREIGN KEY(`id_ong`) REFERENCES `ong` (`id`),
+    FOREIGN KEY(`tipo_pagamento`) REFERENCES `pagamento`(`id`)
 );
 
 /*VER DIREITO ESSA TABELA DOAÇÃO.. PRECISO GUARDA AS INFORMAÇÕES DO CARTÃO DE CRÉDITO OU DEBITO(POSSO PENSAR NA 
 POSSIBILIDADE DE FAZER DEPOSITO --PESQUISAR--*/
 
-CREATE TABLE `usuarioAdm`(
+CREATE TABLE `pagamento`(
     `id`	INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `email`	VARCHAR(255),
-    `senha`	VARCHAR(255),
-	`nome`	VARCHAR(255),
-    `celular`	VARCHAR(255)
+    `nome_cartao`	VARCHAR(255),
+    `numero_cartao`	VARCHAR(255),
+	`vencimento`	DATE,
+    `credito`	    BOOLEAN,
+    `debito`        BOOLEAN
 );
 
 INSERT INTO doacao(valor, tipo_pagamento, id_usuario, id_ong) 

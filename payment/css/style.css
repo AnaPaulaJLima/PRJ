@@ -33,6 +33,7 @@ body{
 padding:0;
 margin:0;
 font-family: 'Open Sans', sans-serif;
+background:#eaffb7;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -83,7 +84,7 @@ p.footer a:hover{
 	padding: 0em 0 0em;
 }
 .pay-tabs{
-	margin: 0 0 2em 0;
+	margin: 0 0 0;
     padding: 1em 1em 1.5em 1em;
 	background: #fff; 
 	border: 1px solid #e7ebee;	
@@ -104,7 +105,7 @@ p.footer a:hover{
 .resp-tab-item{
     font-size: 14px;
     text-decoration: none;
-    color: #a9acb1;
+    color:black;
 	font-weight:600;
     cursor: pointer;
 	text-align: center;
@@ -129,7 +130,7 @@ p.footer a:hover{
 	clear: left;
     padding: 2em 2.5em;
     background: #fff;
-    border: #e7ebee;	
+    border: 1px solid #e7ebee;
 }
 h2.resp-accordion {
 	cursor: pointer;
@@ -830,7 +831,7 @@ transition:0.5s all;
 		background:  no-repeat 30px 12px #fafafa !important;
 	}
 	.pay-tabs {
-		margin: 0 0 1.5em 0;
+		margin: 0 0 0;
 	}
 	.tab-for input[type="text"] {
 		width: 92%;

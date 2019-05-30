@@ -1,4 +1,8 @@
-
+<?php
+  session_start();
+  //recebe o parâmetro GET
+  $ID = $_GET["id"]; 
+?>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -41,14 +45,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 					</script>
 						<div class="sap_tabs">
-							
 								<div class="pay-tabs">
 									<h2>Valor da doação </h2>
-									  <ul class="">
-										  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span><label class="pic1">R$ 30,00</label></span></li>
-										  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span><label class="pic3"></label></span></li>
-										  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span><label class="pic4"></label></span></li> 
-										  <li class="resp-tab-item" aria-controls="tab_item-3" role="tab"><span><label class="pic2"></label></span></li>
+									  <ul class="resp-tabs-list">
+										<div class="custom-control custom-radio">   
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" name="radioBtnValor" value="30,00" class="custom-control-input">
+											<br>R$ 30,00</label></span></li>
+										</div>
+										<div class="custom-control custom-radio">   
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" name="radioBtnValor" value="50,00" class="custom-control-input">
+											<br>R$ 50,00</label></span></li>
+										</div>
+										<div class="custom-control custom-radio">   
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" name="radioBtnValor" value="100,00" class="custom-control-input">
+											<br>R$ 100,00</label></span></li>
+										</div>
+										<div class="custom-control custom-radio">   
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" name="radioBtnValor" value="150,00" class="custom-control-input">
+											<br>R$ 150,00</label></span></li>
+										</div>
 										  <div class="clear"></div>
 									  </ul>	
 								</div>
@@ -56,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="pay-tabs">
 									<ul class="resp-tabs-list">
 										<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span><label></label><i class="far fa-credit-card"></i> Credit Card</span></li>
-										<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span><label></label><i class="fab fa-paypal"></i> PayPal</span></li> 
+										<!--<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span><label></label><i class="fab fa-paypal"></i> PayPal</span></li>-->
 										<li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span><label></label><i class="fas fa-credit-card"></i> Debit Card</span></li>
 										<div class="clear"></div>
 									</ul>	
@@ -64,117 +79,79 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="resp-tabs-container">
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 										<div class="payment-info">
-										<h3 class="pay-title">Credit Card Info</h3>
-											<form>
+										<h3 class="pay-title">Informações Cratão de Crédito</h3>
+											<form action="doacao.php" method="POST" role="form" enctype="multipart/form-data">
 												<div class="tab-for">				
-													<h5>EMAIL ADDRESS</h5>
-														<input type="text" value="">
-													<h5>FIRST NAME</h5>													
-														<input type="text" value="">
+													<h5>Email</h5>
+														<input type="text" name="email" placeholder="amigosolidario@gmail.com">
+													<h5>CPF</h5>													
+														<input type="text" name="cpf" placeholder="000.000.000-00" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required="">
 												</div>			
-											</form>
 											
-											<form>
 												<div class="tab-for">				
-													<h5>NAME ON CARD</h5>
-														<input type="text" value="">
-													<h5>CARD NUMBER</h5>													
-														<input class="pay-logo" type="text" value="0000-0000-0000-0000" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required="">
+													<h5>Nome impresso no cartão</h5>
+														<input type="text" name="nome_cartao" placeholder="MARIANA J LIMA">
+													<h5>Número do cartão</h5>													
+														<input class="pay-logo" type="text" name="numero_cartao" placeholder="0000-0000-0000-0000" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required="">
 												</div>	
 												<div class="transaction">
 													<div class="tab-form-left user-form">
-														<h5>EXPIRATION</h5>
+														<h5>Vencimento</h5>
 															<ul>
 																<li>
-																	<input type="number" class="text_box" type="text" value="6" min="1" />	
+																	<input type="number" name="mes" class="text_box" type="text" placeholder="6" min="1" />	
 																</li>
 																<li>
-																	<input type="number" class="text_box" type="text" value="1988" min="1" />	
+																	<input type="number" name="ano" class="text_box" type="text" placeholder="1988" min="1" />	
 																</li>
 																
 															</ul>
 													</div>
 													<div class="tab-form-right user-form-rt">
-														<h5>CVV NUMBER</h5>													
-														<input type="text" value="xxxx" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'xxxx';}" required="">
+														<h5>CVV</h5>													
+															<input type="text" placeholder="xxx" onfocus="this.value = '';" onblur="if (this.value == '3') {this.value = 'xxx';}" required="">
 													</div>
 													<div class="clear"></div>
 												</div>
-												<input type="submit" value="SUBMIT">
+												<input type="hidden" class="form-control" name="id_ong" value="<?php echo $ID?>">
+												<input type="submit" value="DOAR">
 											</form>
 											<div class="single-bottom">
-													<ul>
-														<li>
-															<input type="checkbox"  id="brand" value="">
-															<label for="brand"><span></span>By checking this box, I agree to the Terms & Conditions & Privacy Policy.</label>
-														</li>
-													</ul>
-											</div>
-										</div>
-									</div>
-									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-										<div class="payment-info">
-											<h3>PayPal</h3>
-											<h4>Already Have A PayPal Account?</h4>
-											<div class="login-tab">
-												<div class="user-login">
-													<h2>Login</h2>
-													
-													<form>
-														<input type="text" value="name@email.com" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name@email.com';}" required="">
-														<input type="password" value="PASSWORD" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'PASSWORD';}" required="">
-															<div class="user-grids">
-																<div class="user-left">
-																	<div class="single-bottom">
-																			<ul>
-																				<li>
-																					<input type="checkbox"  id="brand1" value="">
-																					<label for="brand1"><span></span>Remember me?</label>
-																				</li>
-																			</ul>
-																	</div>
-																</div>
-																<div class="user-right">
-																	<input type="submit" value="LOGIN">
-																</div>
-																<div class="clear"></div>
-															</div>
-													</form>
-												</div>
 											</div>
 										</div>
 									</div>
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">	
 										<div class="payment-info">
 											
-											<h3 class="pay-title">Dedit Card Info</h3>
-											<form>
-												<div class="tab-for">				
-													<h5>NAME ON CARD</h5>
-														<input type="text" value="">
-													<h5>CARD NUMBER</h5>													
-														<input class="pay-logo" type="text" value="0000-0000-0000-0000" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required="">
+											<h3 class="pay-title">Informações do Cartão de Débito</h3>
+											<form action="doacao.php" method="POST" role="form" enctype="multipart/form-data">
+												<div class="tab-for">
+													<h5>Nome impresso no cartão</h5>
+														<input type="text" name="nome_cartao" placeholder="MARIANA J LIMA">
+													<h5>Número do cartão</h5>													
+														<input class="pay-logo" type="text" name="numero_cartao" placeholder="0000-0000-0000-0000" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required="">				
 												</div>	
 												<div class="transaction">
 													<div class="tab-form-left user-form">
-														<h5>EXPIRATION</h5>
+														<h5>Vencimento</h5>
 															<ul>
 																<li>
-																	<input type="number" class="text_box" type="text" value="6" min="1" />	
+																	<input type="number" name="mes" class="text_box" type="text" placeholder="6" min="1" />	
 																</li>
 																<li>
-																	<input type="number" class="text_box" type="text" value="1988" min="1" />	
+																	<input type="number" name="ano" class="text_box" type="text" placeholder="1988" min="1" />	
 																</li>
 																
 															</ul>
 													</div>
 													<div class="tab-form-right user-form-rt">
-														<h5>CVV NUMBER</h5>													
-														<input type="text" value="xxxx" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'xxxx';}" required="">
+														<h5>CVV</h5>													
+															<input type="text" placeholder="xxx" onfocus="this.value = '';" onblur="if (this.value == '3') {this.value = 'xxx';}" required="">
 													</div>
 													<div class="clear"></div>
 												</div>
-												<input type="submit" value="SUBMIT">
+												<input type="hidden" class="form-control" name="id_ong" value="<?php echo $ID?>">
+												<input type="submit" value="DOAR">
 											</form>
 											<div class="single-bottom">
 													<ul>

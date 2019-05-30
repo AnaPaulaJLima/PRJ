@@ -98,7 +98,9 @@
                   data-target="#modalLogin" aria-expanded="false">
                     <span class="nav-link">Login</span>
               </button>
-              <li class="nav-item"><a>ou</a></li>
+              <li>
+                  <a >Contribuir</a>
+              </li>
               <button type="button" class="btn btn-b-n" data-toggle="modal"
                 data-target="#modalCadastro" aria-expanded="false">
                   <span class="nav-link" aria-hidden="true">Cadastre-se</span>
@@ -225,6 +227,9 @@
         </div>
       </div>
     </div>
+      <div class="col-md-12">
+          <a type="button" class="btn btn-b-n" href="payment/payment.php?id=<?= $ong['id']?>" aria-expanded="false"><span class="nav-link">Contribua agora!</span></a>
+      </div>
   </section>
   <!--/ Intro Single End /-->
 
@@ -407,9 +412,7 @@
                           rows="8" required></textarea>
                       </div>
                     </div>
-                    <div class="col-md-12">
-                      <button type="submit" class="btn btn-a">Send Message</button>
-                    </div>
+                   
                   </div>
                 </form>
               </div>
