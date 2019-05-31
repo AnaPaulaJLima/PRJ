@@ -77,6 +77,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										  <div class="clear"></div>
 									  </ul>	
 								</div>
+								<?php
+											function valor(){
+												$valor = "radioBtnValor";
+											
+													if ($valor == "30.00"){
+														return	$valorDoacao = "30.00";}
+													else if ($valor == "50.00"){
+														return $valorDoacao = "50.00";	}
+													else if ($valor == "100.00") {
+														return $valorDoacao = "100.00";	}
+													else if ($valor == "150.00") {
+														return	$valorDoacao = "150.00";	}
+											}		
+								?>
 								<div id="horizontalTab" style=" width: 100%; margin: 0px;">
 								<div class="pay-tabs">
 									<ul class="resp-tabs-list">
@@ -122,17 +136,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													</div>
 													<div class="clear"></div>
 												</div>
-												<?php $valor = "radioBtnValor"?> 
-													<?if($valor == "30")?>
-														<input type="hidden" class="form-control" name="valor" value="30.00">
-													<?else if($valor == "50")?>
-														<input type="hidden" class="form-control" name="valor" value="50.00">
-													<?else if($valor == "100")?>
-														<input type="hidden" class="form-control" name="valor" value="100.00">
-													<?else if($valor == "150")?>
-														<input type="hidden" class="form-control" name="valor" value="150.00">
-
 												<input type="hidden" class="form-control" name="id_ong" value="<?php echo $ID?>">
+												<input type="hidden" class="form-control" name="valor" value="<?php valor()?>">
 												<input type="hidden" class="form-control" name="tipo_payment" value="credito">
 												<input type="submit" value="DOAR">
 											</form>

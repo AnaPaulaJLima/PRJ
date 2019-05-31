@@ -115,6 +115,12 @@
                                 <span class="hide-menu">Gerenciamento Usuários ADM</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="logout.php" aria-expanded="false" >
+                                <i class="fas fa-list"></i>
+                                <span class="hide-menu">Logout</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

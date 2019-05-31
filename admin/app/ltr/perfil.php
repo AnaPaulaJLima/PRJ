@@ -1,5 +1,16 @@
 <?php
+require_once("connection.php");
   session_start();
+  $emailUsuario = $_SESSION["usuarioEmail"];
+
+  $queryUser = "SELECT * FROM USUARIO WHERE email like '$emailUsuario'";
+    $result = $conecta->query($queryUser);
+    if(!$result) {
+        die("falha na consulta ao banco");   
+    } else{
+        $user = mysqli_fetch_assoc($result);
+    
+    }
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -116,6 +127,12 @@
                                 <span class="hide-menu">Gerenciamento Usuários ADM</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="logout.php" aria-expanded="false" >
+                                <i class="fas fa-list"></i>
+                                <span class="hide-menu">Logout</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -168,17 +185,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <center class="m-t-30"> <i class="fas fa-user" class="rounded-circle" width="150"></i><img src="" class="rounded-circle" width="150" />
-                                    <h4 class="card-title m-t-10">Hanna Gover</h4>
-                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                                    <h4 class="card-title m-t-10"><?php echo $user ['nome']?></h4>
+                                    <h6 class="card-subtitle">Usuário ADM</h6>
                                     <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
+                                        <!--<div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>-->
                                     </div>
                                 </center>
                             </div>
                             <div>
                                 <hr> </div>
-                            <div class="card-body"> <small class="text-muted">Email address </small>
+                            <!--<div class="card-body"> <small class="text-muted">Email address </small>
                                 <h6>hannagover@gmail.com</h6> <small class="text-muted p-t-30 db">Phone</small>
                                 <h6>+91 654 784 547</h6> <small class="text-muted p-t-30 db">Address</small>
                                 <h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
@@ -189,7 +206,7 @@
                                 <button class="btn btn-circle btn-secondary"><i class="mdi mdi-facebook"></i></button>
                                 <button class="btn btn-circle btn-secondary"><i class="mdi mdi-twitter"></i></button>
                                 <button class="btn btn-circle btn-secondary"><i class="mdi mdi-youtube-play"></i></button>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <!-- Column -->
@@ -197,52 +214,35 @@
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" action="updateUserADM.php" method="POST" role="form" enctype="multipart/form-data"">
                                     <div class="form-group">
-                                        <label class="col-md-12">Full Name</label>
+                                        <label class="col-md-12">Nome</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line" name="nome" value="<?php echo $user ['nome']?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="email" id="example-email" value="<?php echo $user ['email']?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Password</label>
+                                        <label class="col-md-12">Senha</label>
                                         <div class="col-md-12">
-                                            <input type="password" value="password" class="form-control form-control-line">
+                                            <input type="password" name="senha" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
+                                        <label class="col-md-12">Celular</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                            <input type="text" name="celular" class="form-control form-control-line" value="<?php echo $user['celular']?>">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <input type="hidden" class="form-control" name="id" value="<?php echo $user['id']?>">
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
+                                            <button type="submit" class="btn btn-success">Editar Perfil</button>
                                         </div>
                                     </div>
                                 </form>
