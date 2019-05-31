@@ -57,7 +57,8 @@ CREATE TABLE `pagamento`(
     `id`	INTEGER PRIMARY KEY AUTO_INCREMENT,
     `nome_cartao`	VARCHAR(255),
     `numero_cartao`	VARCHAR(255),
-	`vencimento`	DATE,
+	`mes_vencimento` INTEGER,
+    `ano_vencimento` YEAR,
     `credito`	    BOOLEAN,
     `debito`        BOOLEAN
 );

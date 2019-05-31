@@ -1,7 +1,17 @@
 <?php
   session_start();
+  require_once("connection.php");
   //recebe o parâmetro GET
   $ID = $_GET["id"]; 
+
+  $query = "SELECT * FROM ong WHERE id = '$ID';";
+
+  $ongs = $conecta->query($query);
+  if(!$ongs) {
+      die("falha na consulta ao banco");   
+  }else {
+	$ong = mysqli_fetch_assoc($ongs);
+  }
 ?>
 <!--
 Author: W3layouts
@@ -46,22 +56,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</script>
 						<div class="sap_tabs">
 								<div class="pay-tabs">
-									<h2>Valor da doação </h2>
+									<h2><?php echo $ong['nome_fantasia']?></h2>
 									  <ul class="resp-tabs-list">
 										<div class="custom-control custom-radio">   
-											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" name="radioBtnValor" value="30,00" class="custom-control-input">
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio30" name="radioBtnValor" value="30" class="custom-control-input">
 											<br>R$ 30,00</label></span></li>
 										</div>
 										<div class="custom-control custom-radio">   
-											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" name="radioBtnValor" value="50,00" class="custom-control-input">
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio50" name="radioBtnValor" value="50" class="custom-control-input">
 											<br>R$ 50,00</label></span></li>
 										</div>
 										<div class="custom-control custom-radio">   
-											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" name="radioBtnValor" value="100,00" class="custom-control-input">
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio100" name="radioBtnValor" value="100" class="custom-control-input">
 											<br>R$ 100,00</label></span></li>
 										</div>
 										<div class="custom-control custom-radio">   
-											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" name="radioBtnValor" value="150,00" class="custom-control-input">
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio150" name="radioBtnValor" value="150" class="custom-control-input">
 											<br>R$ 150,00</label></span></li>
 										</div>
 										  <div class="clear"></div>
@@ -71,7 +81,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="pay-tabs">
 									<ul class="resp-tabs-list">
 										<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span><label></label><i class="far fa-credit-card"></i> Credit Card</span></li>
-										<!--<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span><label></label><i class="fab fa-paypal"></i> PayPal</span></li>-->
 										<li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span><label></label><i class="fas fa-credit-card"></i> Debit Card</span></li>
 										<div class="clear"></div>
 									</ul>	
@@ -80,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 										<div class="payment-info">
 										<h3 class="pay-title">Informações Cratão de Crédito</h3>
-											<form action="doacao.php" method="POST" role="form" enctype="multipart/form-data">
+											<form id="formCredito"action="doacao.php" method="POST" role="form" enctype="multipart/form-data">
 												<div class="tab-for">				
 													<h5>Email</h5>
 														<input type="text" name="email" placeholder="amigosolidario@gmail.com">
@@ -113,7 +122,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													</div>
 													<div class="clear"></div>
 												</div>
+												<?php $valor = "radioBtnValor"?> 
+													<?if($valor == "30")?>
+														<input type="hidden" class="form-control" name="valor" value="30.00">
+													<?else if($valor == "50")?>
+														<input type="hidden" class="form-control" name="valor" value="50.00">
+													<?else if($valor == "100")?>
+														<input type="hidden" class="form-control" name="valor" value="100.00">
+													<?else if($valor == "150")?>
+														<input type="hidden" class="form-control" name="valor" value="150.00">
+
 												<input type="hidden" class="form-control" name="id_ong" value="<?php echo $ID?>">
+												<input type="hidden" class="form-control" name="tipo_payment" value="credito">
 												<input type="submit" value="DOAR">
 											</form>
 											<div class="single-bottom">
@@ -124,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="payment-info">
 											
 											<h3 class="pay-title">Informações do Cartão de Débito</h3>
-											<form action="doacao.php" method="POST" role="form" enctype="multipart/form-data">
+											<form id="formDebito" action="doacao.php" method="POST" role="form" enctype="multipart/form-data">
 												<div class="tab-for">
 													<h5>Nome impresso no cartão</h5>
 														<input type="text" name="nome_cartao" placeholder="MARIANA J LIMA">
@@ -151,6 +171,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<div class="clear"></div>
 												</div>
 												<input type="hidden" class="form-control" name="id_ong" value="<?php echo $ID?>">
+												<input type="hidden" class="form-control" name="tipo_payment" value="debito">
+
+
 												<input type="submit" value="DOAR">
 											</form>
 											<div class="single-bottom">

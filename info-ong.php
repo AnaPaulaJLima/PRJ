@@ -71,6 +71,9 @@
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
           <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="about.php">Sobre Nós</a>
           </li>
           <li class="nav-item">
@@ -79,13 +82,7 @@
           <!--<li class="nav-item">
           <a class="nav-link" href="blog-grid.html">Blog</a>
         </li>-->
-        <?php
-          if ( isset($_SESSION["usuarioNome"])) {
-          echo '<li class="nav-item">
-                  <a class="nav-link">Contribuir</a>
-              </li>';
-          }
-      ?>
+     
         </ul>
       </div>
    
@@ -98,9 +95,7 @@
                   data-target="#modalLogin" aria-expanded="false">
                     <span class="nav-link">Login</span>
               </button>
-              <li>
-                  <a >Contribuir</a>
-              </li>
+             
               <button type="button" class="btn btn-b-n" data-toggle="modal"
                 data-target="#modalCadastro" aria-expanded="false">
                   <span class="nav-link" aria-hidden="true">Cadastre-se</span>
