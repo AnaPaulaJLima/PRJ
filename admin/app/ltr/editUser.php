@@ -210,10 +210,10 @@
                 
             </div>
             
-           <!-- <footer class="footer text-center">
-                Todos os direitos reservados por AmigoSolidario. Desenvolvido por 
-                <a href=#>Ana Paula Lima</a>.
-            </footer> -->
+            <footer class="footer text-center">
+                Desenvolvido por Ana Paula Lima 
+                <a href="https://wrappixel.com"></a>.
+            </footer>
             
         </div>
         

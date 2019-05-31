@@ -1,6 +1,17 @@
-<?php
-  session_start();
+<?php 
+    session_start();
+
+  require_once("connection.php");
+
+  $ongs = "SELECT * FROM ONG where ativo = '1';";
+
+  $query = $conecta->query($ongs);
+  if(!$query) {
+      die("falha na consulta ao banco");   
+  }
+    
 ?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -183,18 +194,6 @@
                                 <span class="hide-menu">Logout</span>
                             </a>
                         </li>
-                        <!--<li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="starter-kit.html" aria-expanded="false">
-                                <i class="mdi mdi-file"></i>
-                                <span class="hide-menu">Blank</span>
-                            </a>
-                        </li>-->
-                        <!--<li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="error-404.html" aria-expanded="false">
-                                <i class="mdi mdi-alert-outline"></i>
-                                <span class="hide-menu">404</span>
-                            </a>
-                        </li>-->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -211,16 +210,16 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Dashboard</h4>
+                        <h4 class="page-title">Graficos</h4>
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="#">Home</a>
+                                        <a href="indexADM.php">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Graficos</li>
                                 </ol>
                             </nav>
                         </div>
@@ -234,7 +233,7 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Sales Ratio</h4>
+                                <h4 class="card-title">Doações</h4>
                                 <div class="sales ct-charts mt-3"></div>
                             </div>
                         </div>
@@ -242,7 +241,7 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title m-b-5">Referral Earnings</h5>
+                                <h5 class="card-title m-b-5">Media de Doações</h5>
                                 <h3 class="font-light">$769.08</h3>
                                 <div class="m-t-20 text-center">
                                     <div id="earnings"></div>
@@ -251,17 +250,17 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title m-b-0">Users</h4>
-                                <h2 class="font-light">35,658 <span class="font-16 text-success font-medium">+23%</span></h2>
+                                <h4 class="card-title m-b-0">Ongs</h4>
+                                <h2 class="font-light">35,658 <!--<span class="font-16 text-success font-medium">+23%</span>--></h2>
                                 <div class="m-t-30">
                                     <div class="row text-center">
                                         <div class="col-6 border-right">
                                             <h4 class="m-b-0">58%</h4>
-                                            <span class="font-14 text-muted">New Users</span>
+                                            <span class="font-14 text-muted">Novas Ongs</span>
                                         </div>
                                         <div class="col-6">
                                             <h4 class="m-b-0">42%</h4>
-                                            <span class="font-14 text-muted">Repeat Users</span>
+                                            <span class="font-14 text-muted">Ongs Desativadas</span>
                                         </div>
                                     </div>
                                 </div>
@@ -273,27 +272,34 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Latest Sales</h4>
+                                <h4 class="card-title">Doações por ongs</h4>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">NAME</th>
-                                            <th class="border-top-0">STATUS</th>
-                                            <th class="border-top-0">DATE</th>
-                                            <th class="border-top-0">PRICE</th>
+                                            <th class="border-top-0">Nome</th>
+                                            <th class="border-top-0">Status</th>
+                                            <th class="border-top-0">Data</th>
+                                            <th class="border-top-0">Valor</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                        <?php 
+                                            while($listOng = mysqli_fetch_assoc($query)){ ?>
+                                            <tr>
+                                                <td class="txt-oflo"><?php echo $listOng['nome_fantasia'] ?></td>
+                                                <td><span class="label label-success label-rounded"><?php if($listOng['ativo'] == 1) ?>ATIVO</span> </td>
+                                                <td class="txt-oflo">April 18, 2017</td>
+                                                <td><span class="font-medium">$24</span></td>
+                                        
+                                            </tr> 
+                                            <?php } ?>
                                             
-                                            <td class="txt-oflo">Elite admin</td>
-                                            <td><span class="label label-success label-rounded">SALE</span> </td>
-                                            <td class="txt-oflo">April 18, 2017</td>
-                                            <td><span class="font-medium">$24</span></td>
+                                            
                                         </tr>
-                                        <tr>
+                                        <!--<tr>
                                             
                                             <td class="txt-oflo">Real Homes WP Theme</td>
                                             <td><span class="label label-info label-rounded">EXTENDED</span></td>
@@ -306,35 +312,14 @@
                                             <td><span class="label label-purple label-rounded">Tax</span></td>
                                             <td class="txt-oflo">April 19, 2017</td>
                                             <td><span class="font-medium">$1250</span></td>
-                                        </tr>
-                                        <tr>
-                                            
-                                            <td class="txt-oflo">Medical Pro WP Theme</td>
-                                            <td><span class="label label-success label-rounded">Sale</span></td>
-                                            <td class="txt-oflo">April 20, 2017</td>
-                                            <td><span class="font-medium">-$24</span></td>
-                                        </tr>
-                                        <tr>
-                                            
-                                            <td class="txt-oflo">Hosting press html</td>
-                                            <td><span class="label label-success label-rounded">SALE</span></td>
-                                            <td class="txt-oflo">April 21, 2017</td>
-                                            <td><span class="font-medium">$24</span></td>
-                                        </tr>
-                                        <tr>
-                                            
-                                            <td class="txt-oflo">Digital Agency PSD</td>
-                                            <td><span class="label label-danger label-rounded">Tax</span> </td>
-                                            <td class="txt-oflo">April 23, 2017</td>
-                                            <td><span class="font-medium">-$14</span></td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
@@ -498,12 +483,12 @@
 
                     </div>
                 </div>
-                
-            </div>
+   
+            </div> -->
             
             <footer class="footer text-center">
-                All Rights Reserved by Nice admin. Designed and Developed by
-                <a href="https://wrappixel.com">WrapPixel</a>.
+                Desenvolvido por Ana Paula Lima 
+                <a href="https://wrappixel.com"></a>.
             </footer>
             
         </div>
