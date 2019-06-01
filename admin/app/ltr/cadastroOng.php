@@ -55,7 +55,7 @@ function verificaFields(){
     $mensagem_sec1 = $resultado_sec1[0];
 
     $resultado_sec2 = publicarArquivo($_FILES["foto_sec2"]);
-    $mensagemsec2 = $resultado_sec2[0];
+    $mensagem_sec2 = $resultado_sec2[0];
 
     $nome = $_POST['nome'];
     $ano = $_POST['ano'];
@@ -71,7 +71,7 @@ function verificaFields(){
         $ativo = false;
 
     $inserir = "INSERT INTO ong ";
-    $inserir .= "(nome_fantasia, ano_fundacao,descricao,imagem_principal, ativo, imagem_se1, imagem_sec2) ";
+    $inserir .= "(nome_fantasia, ano_fundacao, descricao, imagem_principal, ativo, imagem_sec1, imagem_sec2) ";
     $inserir .= "VALUES ";
     $inserir .= "('$nome','$ano', '$descricao','$imagem_prin','$ativo','$imagem_sec1','$imagem_sec2')";
 

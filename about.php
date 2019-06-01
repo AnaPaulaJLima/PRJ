@@ -57,6 +57,9 @@
       </button>
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
+        <li class="nav-item">
+              <a class="nav-link" href="index.php">Home</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="about.php">Sobre Nós</a>
           </li>

@@ -287,7 +287,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-10 offset-md-1">
+        <!--<div class="col-md-10 offset-md-1">
           <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab"

@@ -3,23 +3,29 @@
   require_once("connection/connection.php");
   $query1 = "SELECT * FROM ong WHERE id = '1';";
 
-  $ongHospital = $conecta->query($query1);
-  if(!$ongHospital) {
+  $result1 = $conecta->query($query1);
+  if(!$result1) {
       die("falha na consulta ao banco");   
+  } else {
+    $ongHospital = mysqli_fetch_assoc($result1);
   }
 
   $query2 = "SELECT * FROM ong WHERE id = '2';";
 
-  $ongFrasol = $conecta->query($query2);
-  if(!$ongFrasol) {
+  $result2 = $conecta->query($query2);
+  if(!$result2) {
       die("falha na consulta ao banco");   
+  }else {
+    $ongFrasol = mysqli_fetch_assoc($result2);
   }
 
   $query3 = "SELECT * FROM ong WHERE id = '3';";
 
-  $ongIrmas = $conecta->query($query3);
-  if(!$ongIrmas) {
+  $result3 = $conecta->query($query3);
+  if(!$result3) {
       die("falha na consulta ao banco");   
+  }else {
+    $ongIrmas = mysqli_fetch_assoc($result3);
   }
 ?>
 
@@ -348,18 +354,23 @@
         <div class="carousel-item-b">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
-              <img src="img/foto_2019_145205841_2DK9P8MA89HE5PRJJDGKCMNDFCNQ7.jpg" alt="imagem ong" class="img-a img-fluid">
+            <?php
+                  $fotoComplet = $ongHospital ['imagem_principal'];
+                  $arraFoto = preg_split('/\//', $fotoComplet);
+                  $foto = 'img/' . $arraFoto[4];
+            ?>
+              <img src="<?php echo $foto ?>" alt="imagem ong" class="img-a img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">
                 <div class="card-header-a">
                   <h2 class="card-title-a">
-                    <a href="hospitalretaguarda.php">Hospital de Retaguarda 
-                      <br /> Francisco de Assis </a>
+                    <a href="info-ong.php?id=<?= $ongHospital['id']?>"><?php echo $ongHospital['nome_fantasia']?>
+                      <br /> </a>
                   </h2>
                 </div>
                 <div class="card-body-a">
-                  <a href="hospitalretaguarda.php" class="link-a">Saber mais
+                  <a href="info-ong.php?id=<?= $ongHospital['id']?>" class="link-a">Saber mais
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                 </div>
@@ -370,17 +381,22 @@
         <div class="carousel-item-b">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
-              <img src="img/foto_2019_14518104_8DBQJACRDKQQCF7RJHJ45H8G6QM4Q.png" alt="" class="img-a img-fluid">
+            <?php
+                  $fotoComplet = $ongFrasol ['imagem_principal'];
+                  $arraFoto = preg_split('/\//', $fotoComplet);
+                  $foto = 'img/' . $arraFoto[4];
+            ?>
+              <img src="<?php echo $foto ?>" alt="" class="img-a img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">
                 <div class="card-header-a">
                   <h2 class="card-title-a">
-                    <a href="hospitalretaguarda.php">Frasol
+                    <a href="info-ong.php?id=<?= $ongFrasol['id']?>"><?php echo $ongFrasol['nome_fantasia']?>
                   </h2>
                 </div>
                 <div class="card-body-a">
-                  <a href="hospitalretaguarda.php" class="link-a">Saber mais
+                  <a href="info-ong.php?id=<?= $ongFrasol['id']?>" class="link-a">Saber mais
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                 </div>
@@ -391,18 +407,23 @@
         <div class="carousel-item-b">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
-              <img src="img/foto_2019_145181058_44NPKC6PEHDD9MJ6JHJCG8BP272M3.jpg" alt="" class="img-a img-fluid">
+            <?php
+                  $fotoComplet = $ongIrmas ['imagem_principal'];
+                  $arraFoto = preg_split('/\//', $fotoComplet);
+                  $foto = 'img/' . $arraFoto[4];
+            ?>
+              <img src="<?php echo $foto ?>" alt="" class="img-a img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">
                 <div class="card-header-a">
                   <h2 class="card-title-a">
-                    <a href="hospitalretaguarda.php">Associação 
-                      <br /> São Francisco de Assis Gewo-Haus</a>
+                    <a href="info-ong.php?id=<?= $ongIrmas['id']?>"><?php echo $ongIrmas['nome_fantasia']?>
+                      <br /> </a>
                   </h2>
                 </div>
                 <div class="card-body-a">
-                  <a href="hospitalretaguarda.php" class="link-a">Saber Mais
+                  <a href="info-ong.php?id=<?= $ongIrmas['id']?>" class="link-a">Saber Mais
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                 </div>
