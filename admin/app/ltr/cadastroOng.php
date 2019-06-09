@@ -1,6 +1,7 @@
 <?php 
   require_once("connection.php");
-  require_once("funcoesUploadFile.php");
+  require_once("funcaoUploadImg.php");
+  require_once("funcaoUploadVideo.php");
 
 function verificaFields(){
     if(isset($_POST["nome"]) ){
@@ -28,12 +29,12 @@ function verificaFields(){
     }else{
       return false;
     }
-    if(isset($_FILES["foto_sec1"]) ){
+    if(isset($_FILES["foto_secundaria"]) ){
       return true;
     }else{
       return false;
     }
-    if(isset($_FILES["foto_sec2"]) ){
+    if(isset($_FILES["video"]) ){
       return true;
     }else{
       return false;
@@ -48,21 +49,21 @@ function verificaFields(){
     $result = $conecta->query($queryUser);
     $id = mysqli_fetch_assoc($result);
     $id_usuario = $id['id'];*/
-    $resultado_prin = publicarArquivo($_FILES["foto_prin"]);
+    $resultado_prin = publicarArquivoImg($_FILES["foto_prin"]);
     $mensagem_prin = $resultado_prin[0];
 
-    $resultado_sec1 = publicarArquivo($_FILES["foto_sec1"]);
+    $resultado_sec1 = publicarArquivoImg($_FILES["foto_secundaria"]);
     $mensagem_sec1 = $resultado_sec1[0];
 
-    $resultado_sec2 = publicarArquivo($_FILES["foto_sec2"]);
-    $mensagem_sec2 = $resultado_sec2[0];
+    $resultado_video = publicarArquivoVideo($_FILES["video"]);
+    $mensagem_video = $resultado_video[0];
 
     $nome = $_POST['nome'];
     $ano = $_POST['ano'];
     $descricao = $_POST['descricao'];
     $imagem_prin = $resultado_prin;
     $imagem_sec1 = $resultado_sec1;
-    $imagem_sec2 = $resultado_sec2;
+    $video = $resultado_video;
     $ativo = $_POST['radioBtnStatus'];
     
     if($ativo == "sim")
@@ -71,9 +72,9 @@ function verificaFields(){
         $ativo = false;
 
     $inserir = "INSERT INTO ong ";
-    $inserir .= "(nome_fantasia, ano_fundacao, descricao, imagem_principal, ativo, imagem_sec1, imagem_sec2) ";
+    $inserir .= "(nome_fantasia, ano_fundacao, descricao, imagem_principal, ativo, imagem_secundaria, video) ";
     $inserir .= "VALUES ";
-    $inserir .= "('$nome','$ano', '$descricao','$imagem_prin','$ativo','$imagem_sec1','$imagem_sec2')";
+    $inserir .= "('$nome','$ano', '$descricao','$imagem_prin','$ativo','$imagem_sec1','$video')";
 
       $queryInserir = mysqli_query($conecta, $inserir);
       if(!$queryInserir) {

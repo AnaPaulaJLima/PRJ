@@ -216,9 +216,6 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-12">
                         <div class="card card-body">
@@ -239,6 +236,39 @@
                                     <label>Ano de Fundação</label>
                                     <input type="text" class="form-control" name="ano" placeholder="1978">
                                 </div>
+                                <div class="row">
+                                <div class="form-group col-10">
+                                    <label>Logradouro</label>
+                                    <input type="text" class="form-control" name="logradouro" placeholder="Rua Do Bem">
+                                </div>
+                                <div class="form-group col-2">
+                                    <label>Número</label>
+                                    <input type="number" class="form-control" name="numero" placeholder="2724">
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="form-group col-4">
+                                    <label>Bairro</label>
+                                    <input type="text" class="form-control" name="bairro" placeholder="Centro">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label>Cidade</label>
+                                    <input type="text" class="form-control" name="cidade" placeholder="São Carlos">
+                                </div>
+                                <div class="form-group col-2">
+                                    <label>CEP</label>
+                                    <input type="text" class="form-control" name="cep" placeholder="13560-001">
+                                </div>
+                                <div class="form-group col-2">
+                                    <label>Estado</label>
+                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                        <option selected>Qual estado</option>
+                                        <option value="1">SP</option>
+                                        <option value="2">PR</option>
+                                        <option value="3">BH</option>
+                                    </select>
+                                </div>
+                                </div>
                                 <div class="form-group">
                                     <label>Descrição/Quem somos</label>
                                     <textarea class="form-control" name="descricao" rows="20"></textarea>
@@ -256,24 +286,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--<div class="form-group">
-                                    <label>Input Select</label>
-                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
-                                        <option selected>Choose...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>-->
+                                
                                 <div class="form-group">
                                     <label>Imagem de exibição principal</label>
                                     <input type="file" class="form-control" name="foto_prin">
                                 </div>
                                 <div class="form-group">
-                                    <label>Imagens de exibição secundario - Maximo duas (Imagens a serem exibidas na tela de informações sobre a ong)</label>
-                                    <input type="file" class="form-control" name="foto_sec1">
-                                    <br>
-                                    <input type="file" class="form-control" name="foto_sec2">
+                                    <label>Imagem de exibição secundario (Será exibida na tela de informações da ONG)</label>
+                                    <input type="file" class="form-control" name="foto_secundaria">
+                                </div>
+                                <div class="form-group">
+                                    <label>Video sobre a ONG ou de algum projeto</label>
+                                    <input type="file" class="form-control" name="video">
                                 </div>
                                 <div class="form-group">
                                         <div class="col text-right">
@@ -285,16 +309,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

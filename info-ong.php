@@ -41,13 +41,6 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: EstateAgency
-    Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 
 <body>
@@ -230,13 +223,13 @@
 
   <!--/ Property Single Star /-->
   <?php
-    $img_sec1_complet = $ong ['imagem_sec1'];
-    $array_img_sec1 = preg_split('/\//', $img_sec1_complet);
-    $foto_sec1 = 'img/' . $array_img_sec1[4];
+    $img_sec_complet = $ong ['imagem_secundaria'];
+    $array_img_sec = preg_split('/\//', $img_sec_complet);
+    $foto_sec = 'img/' . $array_img_sec[4];
 
-    $img_sec2_complet = $ong ['imagem_sec2'];
-    $array_img_sec2 = preg_split('/\//', $img_sec2_complet);
-    $foto_sec2 = 'img/' . $array_img_sec2[4];
+    $video_complet = $ong ['video'];
+    $array_video = preg_split('/\//', $video_complet);
+    $video = 'video/' . $array_video[4];
   ?>
   <section class="property-single nav-arrow-b">
     <div class="container">
@@ -244,10 +237,7 @@
         <div class="col-sm-12">
           <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
             <div class="carousel-item-b">
-              <img src="<?php echo $foto_sec1 ?>" alt="imagem ong">
-            </div>
-            <div class="carousel-item-b">
-              <img src="<?php echo $foto_sec2 ?>" alt="imagem ong">
+              <img src="<?php echo $foto_sec ?>" alt="imagem ong">
             </div>
           </div>
           <div class="col-md col-lg section-md">
@@ -287,25 +277,23 @@
             </div>
           </div>
         </div>
-        <!--<div class="col-md-10 offset-md-1">
+        <div class="col-md-10 offset-md-1">
           <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab"
                 aria-controls="pills-video" aria-selected="true">Video</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="pills-plans-tab" data-toggle="pill" href="#pills-plans" role="tab" aria-controls="pills-plans"
-                aria-selected="false">Floor Plans</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map"
-                aria-selected="false">Ubication</a>
+                aria-selected="false">Localização</a>
             </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
-              <iframe src="https://player.vimeo.com/video/73221098" width="100%" height="460" frameborder="0"
-                webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            
+            <video width="100%" height="460" controls="controls">
+             <source src="<?php echo $video ?>" type="video/mp4">                
+            </video>
             </div>
             <div class="tab-pane fade" id="pills-plans" role="tabpanel" aria-labelledby="pills-plans-tab">
               <img src="img/plan2.jpg" alt="" class="img-fluid">
@@ -316,7 +304,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12">
+        <!--<div class="col-md-12">
           <div class="row section-t3">
             <div class="col-sm-12">
               <div class="title-box-d">

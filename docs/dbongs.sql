@@ -28,8 +28,10 @@ CREATE TABLE `ong`(
     `nome_fantasia` VARCHAR(255),
     `ano_fundacao`  YEAR,
     `descricao`     TEXT,
-    `imagem`        VARCHAR(255),
-    `ativo`         BOOLEAN
+    `ativo`         BOOLEAN,
+    `imagem_principal`   VARCHAR(255),
+    `imagem_secundaria`  VARCHAR(255),
+    `video`         VARCHAR(255)
 ); 
 
 INSERT INTO ong(nome_fantasia, ano_fundacao, descricao, ativo) 
@@ -68,3 +70,6 @@ INSERT INTO doacao(valor, tipo_pagamento, id_usuario, id_ong)
 
 
 UPDATE usuario SET ADMIN = 0 WHERE ID = 2;
+
+ALTER TABLE ong CHANGE imagem_sec1 imagem_secundaria VARCHAR(255),
+ALTER TABLE ong CHANGE imagem_sec2 video VARCHAR(255),

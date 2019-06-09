@@ -1,6 +1,7 @@
 <?php 
   require_once("connection.php");
-  require_once("funcoesUploadFile.php");
+  require_once("funcaoUploadImg.php");
+  require_once("funcaoUploadVideo.php");
 
 function verificaFields(){
     if(isset($_POST["nome"]) ){
@@ -28,12 +29,12 @@ function verificaFields(){
     }else{
       return false;
     }
-    if(isset($_FILES["foto_sec1"]) ){
+    if(isset($_FILES["foto_secundaria"]) ){
       return true;
     }else{
       return false;
     }
-    if(isset($_FILES["foto_sec2"]) ){
+    if(isset($_FILES["video"]) ){
       return true;
     }else{
       return false;
@@ -48,15 +49,14 @@ function verificaFields(){
     $result = $conecta->query($queryUser);
     $id = mysqli_fetch_assoc($result);
     $id_usuario = $id['id'];*/
-    $resultado_prin = publicarArquivo($_FILES["foto_prin"]);
+    $resultado_prin = publicarArquivoImg($_FILES["foto_prin"]);
     $mensagem_prin = $resultado_prin[0];
 
-    $resultado_sec1 = publicarArquivo($_FILES["foto_sec1"]);
+    $resultado_sec1 = publicarArquivoImg($_FILES["foto_secundaria"]);
     $mensagem_sec1 = $resultado_sec1[0];
 
-    $resultado_sec2 = publicarArquivo($_FILES["foto_sec2"]);
-    $mensagemsec2 = $resultado_sec2[0];
-
+    $resultado_video = publicarArquivoVideo($_FILES["video"]);
+    $mensagem_video = $resultado_video[0];
 
     $id = $_POST['id'];
     $nome = $_POST['nome'];
@@ -64,7 +64,7 @@ function verificaFields(){
     $descricao = $_POST['descricao'];
     $imagem_prin = $resultado_prin;
     $imagem_sec1 = $resultado_sec1;
-    $imagem_sec2 = $resultado_sec2;
+    $video = $resultado_video;
     $ativo = $_POST['radioBtnStatus'];
     
     
@@ -75,7 +75,7 @@ function verificaFields(){
 
     $update = "UPDATE ong SET nome_fantasia = '$nome', ano_fundacao = '$ano', ";
     $update .= "descricao = '$descricao', imagem_principal ='$imagem_prin', ";
-    $update .= "ativo = '$ativo', imagem_sec1 ='$imagem_sec1', imagem_sec2 ='$imagem_sec2'";
+    $update .= "ativo = '$ativo', imagem_secundaria ='$imagem_sec1', video ='$video'";
     $update .= "WHERE ";
     $update .= "id = '$id'";
 

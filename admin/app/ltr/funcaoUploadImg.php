@@ -1,6 +1,6 @@
 <?php
 
-  function gerarCodigoUnico() {
+  function gerarCodigoUnicoI() {
     $alfabeto   = "23456789ABCDEFJGHJKMNPQRS";
     $tamanho    = 30;
     $letra      = "";
@@ -23,15 +23,15 @@
   }
 
   //pega apenas a extensão do nome da imagem
-  function getExtensao($nome) {
+  function getExtensaoI($nome) {
     //funcao pega caracteres a partir do caracterer selecionado
     return strrchr($nome,".");
   }
 
-  function  publicarArquivo( $imagem ) {
+  function  publicarArquivoImg( $imagem ) {
     $arquivo_tmp = $imagem["tmp_name"];
     $nome_original = basename( $imagem["name"] );
-    $nome_novo = gerarCodigoUnico() . getExtensao($nome_original);
+    $nome_novo = gerarCodigoUnicoI() . getExtensaoI($nome_original);
     $nome_completo = "../../../img/" . $nome_novo;
 
     move_uploaded_file($arquivo_tmp, $nome_completo);
@@ -40,7 +40,7 @@
 
   }
 
-   function mostrarAvisoPublicacao( $numero ) {
+   function mostrarAvisoPublicacaoI( $numero ) {
     // Array com possiveis erros ao fazer upload de arquivo para PHP
     $array_erro = array(
       UPLOAD_ERR_OK => "Sem erro.",
