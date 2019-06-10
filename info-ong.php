@@ -41,6 +41,10 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+  <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="js/mapa.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoaQUc8HMwkucxT6-3UB4r6hdP83lro1M&callback=initMap" async defer></script>
+  
 </head>
 
 <body>
@@ -290,17 +294,15 @@
           </ul>
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
-            
-            <video width="100%" height="460" controls="controls">
-             <source src="<?php echo $video ?>" type="video/mp4">                
-            </video>
+              <video width="100%" height="460" controls="controls">
+              <source src="<?php echo $video ?>" type="video/mp4">                
+              </video>
             </div>
-            <div class="tab-pane fade" id="pills-plans" role="tabpanel" aria-labelledby="pills-plans-tab">
-              <img src="img/plan2.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes+Square!5e0!3m2!1ses-419!2sve!4v1510329142834"
-                width="100%" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab" >
+              <div id="map" style="height: 500px; width: 850px"></div>
+                <br>
+                <input class="form-control" id="endereco" name="endereco" value="<?php echo $ong['endereco']?>" disabled>
+                <input type="hidden" id="btnEndereco" name="btnEndereco" onclick="carregarNoMapa(endereco.value)" value="Mostrar no mapa" />
             </div>
           </div>
         </div>
@@ -506,6 +508,7 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  
 
 </body>
 </html>

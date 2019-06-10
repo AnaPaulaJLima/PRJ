@@ -39,6 +39,31 @@ function verificaFields(){
     }else{
       return false;
     }
+    if(isset($_FILES["logradouro"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["numero"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["bairro"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["cidade"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["cep"]) ){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   /*session_start();
@@ -65,6 +90,13 @@ function verificaFields(){
     $imagem_sec1 = $resultado_sec1;
     $video = $resultado_video;
     $ativo = $_POST['radioBtnStatus'];
+    $logradouro = $_POST['logradouro'];
+    $numero = $_POST['numero'];
+    $bairro = $_POST['bairro'];
+    $cidade = $_POST['cidade'];
+    $cep = $_POST['cep'];
+
+    $enderecoCompleto = $logradouro.", ".$numero.", ".$bairro.", ".$cidade.", ".$cep;
     
     if($ativo == "sim")
         $ativo = true;
@@ -72,9 +104,9 @@ function verificaFields(){
         $ativo = false;
 
     $inserir = "INSERT INTO ong ";
-    $inserir .= "(nome_fantasia, ano_fundacao, descricao, imagem_principal, ativo, imagem_secundaria, video) ";
+    $inserir .= "(nome_fantasia, ano_fundacao, descricao, imagem_principal, ativo, imagem_secundaria, video, endereco) ";
     $inserir .= "VALUES ";
-    $inserir .= "('$nome','$ano', '$descricao','$imagem_prin','$ativo','$imagem_sec1','$video')";
+    $inserir .= "('$nome','$ano', '$descricao','$imagem_prin','$ativo','$imagem_sec1','$video', '$enderecoCompleto')";
 
       $queryInserir = mysqli_query($conecta, $inserir);
       if(!$queryInserir) {

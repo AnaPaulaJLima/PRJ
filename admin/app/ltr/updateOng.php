@@ -40,6 +40,32 @@ function verificaFields(){
       return false;
     }
   }
+  if(isset($_FILES["logradouro"]) ){
+    return true;
+  }else{
+    return false;
+  }
+  if(isset($_FILES["numero"]) ){
+    return true;
+  }else{
+    return false;
+  }
+  if(isset($_FILES["bairro"]) ){
+    return true;
+  }else{
+    return false;
+  }
+  if(isset($_FILES["cidade"]) ){
+    return true;
+  }else{
+    return false;
+  }
+  if(isset($_FILES["cep"]) ){
+    return true;
+  }else{
+    return false;
+  }
+  }
 
   /*session_start();
   $emailUsuario = $_SESSION["usuarioEmail"];*/
@@ -66,7 +92,13 @@ function verificaFields(){
     $imagem_sec1 = $resultado_sec1;
     $video = $resultado_video;
     $ativo = $_POST['radioBtnStatus'];
-    
+    $logradouro = $_POST['logradouro'];
+    $numero = $_POST['numero'];
+    $bairro = $_POST['bairro'];
+    $cidade = $_POST['cidade'];
+    $cep = $_POST['cep'];
+
+    $enderecoCompleto = $logradouro.", ".$numero.", ".$bairro.", ".$cidade.", ".$cep;
     
     if($ativo == "sim")
         $ativo = true;
@@ -75,7 +107,7 @@ function verificaFields(){
 
     $update = "UPDATE ong SET nome_fantasia = '$nome', ano_fundacao = '$ano', ";
     $update .= "descricao = '$descricao', imagem_principal ='$imagem_prin', ";
-    $update .= "ativo = '$ativo', imagem_secundaria ='$imagem_sec1', video ='$video'";
+    $update .= "ativo = '$ativo', imagem_secundaria ='$imagem_sec1', video ='$video', endereco ='$enderecoCompleto'";
     $update .= "WHERE ";
     $update .= "id = '$id'";
 

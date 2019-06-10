@@ -214,15 +214,15 @@
                                     <label>CEP</label>
                                     <input type="text" class="form-control" name="cep" placeholder="13560-001">
                                 </div>
-                                <div class="form-group col-2">
+                                <!--<div class="form-group col-2">
                                     <label>Estado</label>
-                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                    <select class="custom-select col-12" id="inlineFormCustomSelect" name="estado">
                                         <option selected>Qual estado</option>
-                                        <option value="1">SP</option>
-                                        <option value="2">PR</option>
-                                        <option value="3">BH</option>
+                                        <option value="sp">SP</option>
+                                        <option value="pr">PR</option>
+                                        <option value="bh">BH</option>
                                     </select>
-                                </div>
+                                </div>-->
                                 </div>
                                 <div class="form-group">
                                     <label>Descrição/Quem somos</label>

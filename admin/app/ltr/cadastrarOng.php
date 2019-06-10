@@ -17,12 +17,6 @@
     <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 
 <body>
@@ -259,15 +253,15 @@
                                     <label>CEP</label>
                                     <input type="text" class="form-control" name="cep" placeholder="13560-001">
                                 </div>
-                                <div class="form-group col-2">
+                                <!--<div class="form-group col-2">
                                     <label>Estado</label>
-                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                    <select class="custom-select col-12" id="inlineFormCustomSelect" name="estado">
                                         <option selected>Qual estado</option>
-                                        <option value="1">SP</option>
-                                        <option value="2">PR</option>
-                                        <option value="3">BH</option>
+                                        <option value="sp">SP</option>
+                                        <option value="pr">PR</option>
+                                        <option value="bh">BH</option>
                                     </select>
-                                </div>
+                                </div>-->
                                 </div>
                                 <div class="form-group">
                                     <label>Descrição/Quem somos</label>
@@ -320,20 +314,8 @@
                 Desenvolvido por Ana Paula Lima 
                 <a href="https://wrappixel.com"></a>.
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>

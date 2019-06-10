@@ -59,38 +59,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h2><?php echo $ong['nome_fantasia']?></h2>
 									  <ul class="resp-tabs-list">
 										<div class="custom-control custom-radio">   
-											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio30" name="radioBtnValor" value="30" class="custom-control-input">
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio30" name="radioBtnValor" value="30" onclick="valor('30')" class="custom-control-input">
 											<br>R$ 30,00</label></span></li>
 										</div>
 										<div class="custom-control custom-radio">   
-											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio50" name="radioBtnValor" value="50" class="custom-control-input">
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio50" name="radioBtnValor" value="50" onclick="valor('50')" class="custom-control-input">
 											<br>R$ 50,00</label></span></li>
 										</div>
 										<div class="custom-control custom-radio">   
-											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio100" name="radioBtnValor" value="100" class="custom-control-input">
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio100" name="radioBtnValor" value="100" onclick="valor('100')" class="custom-control-input">
 											<br>R$ 100,00</label></span></li>
 										</div>
 										<div class="custom-control custom-radio">   
-											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio150" name="radioBtnValor" value="150" class="custom-control-input">
+											<li class="resp-tab-item" role="tab"><span><label class="pic1"><input type="radio" id="radio150" name="radioBtnValor" value="150" onclick="valor('150')" class="custom-control-input">
 											<br>R$ 150,00</label></span></li>
 										</div>
 										  <div class="clear"></div>
 									  </ul>	
 								</div>
-								<?php
-											function valor(){
-												$valor = "radioBtnValor";
-											
-													if ($valor == "30.00"){
-														return	$valorDoacao = "30.00";}
-													else if ($valor == "50.00"){
-														return $valorDoacao = "50.00";	}
-													else if ($valor == "100.00") {
-														return $valorDoacao = "100.00";	}
-													else if ($valor == "150.00") {
-														return	$valorDoacao = "150.00";	}
-											}		
-								?>
+								<script>
+									function valor(dinheiro){
+										var inputValor = document.getElementById('inputDinheiro').value = dinheiro;;
+									}
+								</script>
 								<div id="horizontalTab" style=" width: 100%; margin: 0px;">
 								<div class="pay-tabs">
 									<ul class="resp-tabs-list">
@@ -137,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<div class="clear"></div>
 												</div>
 												<input type="hidden" class="form-control" name="id_ong" value="<?php echo $ID?>">
-												<input type="hidden" class="form-control" name="valor" value="<?php valor()?>">
+												<input type="hidden" class="form-control" name="valor" id='inputDinheiro'>
 												<input type="hidden" class="form-control" name="tipo_payment" value="credito">
 												<input type="submit" value="DOAR">
 											</form>
@@ -147,7 +138,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">	
 										<div class="payment-info">
-											
 											<h3 class="pay-title">Informações do Cartão de Débito</h3>
 											<form id="formDebito" action="doacao.php" method="POST" role="form" enctype="multipart/form-data">
 												<div class="tab-for">

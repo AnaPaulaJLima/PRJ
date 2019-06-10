@@ -38,6 +38,7 @@ INSERT INTO ong(nome_fantasia, ano_fundacao, descricao, ativo)
     VALUES("Hospital de Retaguarda Franscico de Assis","1978-01-01","O Hospital de Retaguarda Francisco de Assis é uma instituição filantrópica sem fins lucrativos, que atua em Ribeirão Preto e região, com a finalidade de prestar assistência a enfermos acamados com doenças crônicas e em situação estável.","1");
 
 ALTER TABLE ong ADD COLUMN imagem_sec1 VARCHAR(255);
+ALTER TABLE ong ADD COLUMN endereco VARCHAR(255);
 
 CREATE TABLE `doacao`(
     `id`            INTEGER PRIMARY KEY AUTO_INCREMENT,
