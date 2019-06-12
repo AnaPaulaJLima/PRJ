@@ -1268,7 +1268,7 @@ pre {
   border-color: #32383e; }
 
 .table .thead-light th {
-  color: #4F5467;
+  color: black;
   background-color: #e9ecef;
   border-color: #dee2e6; }
 
@@ -1341,7 +1341,7 @@ pre {
   padding: 0.375rem 0.75rem;
   font-size: 0.875rem;
   line-height: 1.5;
-  color: #4F5467;
+  color: black;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #e9ecef;
@@ -1354,7 +1354,7 @@ pre {
     background-color: transparent;
     border: 0; }
   .form-control:focus {
-    color: #4F5467;
+    color: black;
     background-color: #fff;
     border-color: rgba(0, 0, 0, 0.25);
     outline: 0;
@@ -1370,7 +1370,7 @@ select.form-control:not([size]):not([multiple]) {
   height: calc(2.0625rem + 2px); }
 
 select.form-control:focus::-ms-value {
-  color: #4F5467;
+  color: black;
   background-color: #fff; }
 
 .form-control-file,
@@ -2652,7 +2652,7 @@ input[type="button"].btn-block {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #4F5467;
+  color: black;
   text-align: center;
   white-space: nowrap;
   background-color: #f6fafe;
@@ -2772,7 +2772,7 @@ input[type="button"].btn-block {
   height: calc(2.0625rem + 2px);
   padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   line-height: 1.5;
-  color: #4F5467;
+  color: black;
   vertical-align: middle;
   background: #fff url(../../assets/images/custom-select.png) no-repeat right 0.75rem center;
   background-size: 8px 10px;
@@ -2784,7 +2784,7 @@ input[type="button"].btn-block {
     outline: 0;
     box-shadow: transparent; }
     .custom-select:focus::-ms-value {
-      color: #4F5467;
+      color: black;
       background-color: #fff; }
   .custom-select[multiple], .custom-select[size]:not([size="1"]) {
     height: auto;
@@ -2841,7 +2841,7 @@ input[type="button"].btn-block {
   height: calc(2.0625rem + 2px);
   padding: 0.375rem 0.75rem;
   line-height: 1.5;
-  color: #4F5467;
+  color: black;
   background-color: #fff;
   border: 1px solid #e9ecef;
   border-radius: 2px; }
@@ -2855,7 +2855,7 @@ input[type="button"].btn-block {
     height: 2.0625rem;
     padding: 0.375rem 0.75rem;
     line-height: 1.5;
-    color: #4F5467;
+    color: black;
     content: "Browse";
     background-color: #f6fafe;
     border-left: 1px solid #e9ecef;
@@ -2992,7 +2992,7 @@ input[type="button"].btn-block {
       border-color: transparent; }
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
-    color: #4F5467;
+    color: black;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff; }
   .nav-tabs .dropdown-menu {
@@ -3865,10 +3865,10 @@ input[type="button"].btn-block {
 
 .list-group-item-action {
   width: 100%;
-  color: #4F5467;
+  color: black;
   text-align: inherit; }
   .list-group-item-action:hover, .list-group-item-action:focus {
-    color: #4F5467;
+    color: black;
     text-decoration: none;
     background-color: #f6fafe; }
   .list-group-item-action:active {
@@ -7446,7 +7446,8 @@ Notify
         .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
           display: none; }
         .topbar .top-navbar .navbar-header .navbar-brand .logo-icon {
-          margin-right: 5px; }
+          margin-right: 5px; 
+          margin-left: 40px;}
         .topbar .top-navbar .navbar-header .navbar-brand .sidebartoggler {
           color: #fff; }
     .topbar .top-navbar .navbar-nav > .nav-item > .nav-link {
@@ -7564,7 +7565,7 @@ Table td vertical middle
     margin-bottom: 0px;
     font-weight: 500;
     font-size: 21px;
-    color: #4F5467; }
+    color: black; }
   .page-breadcrumb .breadcrumb {
     padding: 0px;
     margin: 0px;

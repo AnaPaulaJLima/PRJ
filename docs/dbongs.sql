@@ -31,7 +31,11 @@ CREATE TABLE `ong`(
     `ativo`         BOOLEAN,
     `imagem_principal`   VARCHAR(255),
     `imagem_secundaria`  VARCHAR(255),
-    `video`         VARCHAR(255)
+    `video`         VARCHAR(255), 
+    `endereco`      VARCHAR(255),
+    `email` VARCHAR(100);
+    `telefone` VARCHAR(30);
+    `celular` VARCHAR(30);
 ); 
 
 INSERT INTO ong(nome_fantasia, ano_fundacao, descricao, ativo) 
@@ -39,6 +43,9 @@ INSERT INTO ong(nome_fantasia, ano_fundacao, descricao, ativo)
 
 ALTER TABLE ong ADD COLUMN imagem_sec1 VARCHAR(255);
 ALTER TABLE ong ADD COLUMN endereco VARCHAR(255);
+ALTER TABLE ong ADD COLUMN email VARCHAR(100);
+ALTER TABLE ong ADD COLUMN telefone VARCHAR(30);
+ALTER TABLE ong ADD COLUMN celular VARCHAR(30);
 
 CREATE TABLE `doacao`(
     `id`            INTEGER PRIMARY KEY AUTO_INCREMENT,

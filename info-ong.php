@@ -18,33 +18,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>AmigoSolidário</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <!-- Favicons -->
-  <link href="" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
+  <link rel="icon" type="image/png" sizes="16x16" href="admin/assets/images/logo.jpg">
+	<title>AmigoSolidário</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
-  <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="lib/animate/animate.min.css" rel="stylesheet">
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
   <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="js/mapa.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoaQUc8HMwkucxT6-3UB4r6hdP83lro1M&callback=initMap" async defer></script>
-  
 </head>
 
 <body>
@@ -92,7 +81,7 @@
                   data-target="#modalLogin" aria-expanded="false">
                     <span class="nav-link">Login</span>
               </button>
-             
+              <a class="nav-item">ou</a>
               <button type="button" class="btn btn-b-n" data-toggle="modal"
                 data-target="#modalCadastro" aria-expanded="false">
                   <span class="nav-link" aria-hidden="true">Cadastre-se</span>
@@ -100,12 +89,8 @@
                   ';
               } else {
               echo '
-                  <p class="nav-link">Bem vindo(a), ' . $_SESSION["usuarioNome"] .' </p>                                  
-                  <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Sair</a>
-                  </li>
-                  
-                    
+                  <p class="nav-link" style="padding-right: 20px">Bem vindo(a), ' . $_SESSION["usuarioNome"] .' </p>                                
+                  <a class="nav-link" href="logout.php">Sair</a>
                   ';
               }
           ?> 
@@ -194,11 +179,11 @@
  <!-- /Modal Cadastro--> 
 
   <!--/ Intro Single star /-->
-  <section class="intro-single">
+  <section class="intro-single"  >
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-8">
-          <div class="title-single-box">
+          <div class="title-single-box" >
             <h1 class="title-single"><?php echo $ong['nome_fantasia'] ?></h1>
           </div>
         </div>
@@ -219,13 +204,24 @@
         </div>
       </div>
     </div>
-      <div class="col-md-12">
-          <a type="button" class="btn btn-b-n" href="payment/payment.php?id=<?= $ong['id']?>" aria-expanded="false"><span class="nav-link">Contribua agora!</span></a>
-      </div>
+    <?php
+      if( !isset($_SESSION["usuarioNome"])) {
+      echo '<h1>Para realizar uma doação é necessário esta logado no site </h1>';
+      } else {
+      echo '
+        <div class="row" >
+          <div class="col-md-2"></div>
+            <div class="col-md-5" >   
+            </div>
+          <div class="col-md-4" >
+            <a type="button" class="btn btn-b-n" href="payment/payment.php?id='?><?= $ong['id']?><?php echo'" aria-expanded="false" style="width: 350px; height: 55px"><span class="nav-link">Contribua agora!</span></a>
+          </div>
+        </div>  
+          ';
+      }
+    ?> 
   </section>
-  <!--/ Intro Single End /-->
 
-  <!--/ Property Single Star /-->
   <?php
     $img_sec_complet = $ong ['imagem_secundaria'];
     $array_img_sec = preg_split('/\//', $img_sec_complet);
@@ -305,22 +301,35 @@
                 <input type="hidden" id="btnEndereco" name="btnEndereco" onclick="carregarNoMapa(endereco.value)" value="Mostrar no mapa" />
             </div>
           </div>
-        </div>
-        <!--<div class="col-md-12">
+          <br>
+          <br>
+          <?php
+              if( !isset($_SESSION["usuarioNome"])) {
+              echo '<h1>Para realizar uma doação é necessário esta logado no site </h1>';
+              } else {
+              echo '
+                <div class="row" >
+                  <div class="col-md-12 col-lg-3"></div>
+                  <div class="col-md-12 col-lg-8" >
+                    <a type="button" class="btn btn-b-n" href="payment/payment.php?id='?><?= $ong['id']?><?php echo'" aria-expanded="false" style="width: 350px; height: 55px"><span class="nav-link">Contribua agora!</span></a>
+                  </div>
+                </div>  
+                  ';
+              }
+          ?> 
+        <div class="col-md-12">
           <div class="row section-t3">
             <div class="col-sm-12">
               <div class="title-box-d">
-                <h3 class="title-d">Contact Agent</h3>
+                <h3 class="title-d">Contato</h3>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6 col-lg-4">
-              <img src="img/agent-4.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="col-md-6 col-lg-4">
+          <div class="col-md-12 col-lg-2"></div>
+            <div class="col-md-12 col-lg-8">
               <div class="property-agent">
-                <h4 class="title-agent">Anabella Geller</h4>
+                <h4 class="title-agent"><?php echo $ong['nome_fantasia'] ?></h4>
                 <p class="color-text-a">
                   Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
                   dui. Quisque velit nisi,
@@ -328,54 +337,21 @@
                 </p>
                 <ul class="list-unstyled">
                   <li class="d-flex justify-content-between">
-                    <strong>Phone:</strong>
-                    <span class="color-text-a">(222) 4568932</span>
+                    <strong>Telefone:</strong>
+                    <span class="color-text-a"><?php echo $ong['telefone'] ?></span>
                   </li>
                   <li class="d-flex justify-content-between">
-                    <strong>Mobile:</strong>
-                    <span class="color-text-a">777 287 378 737</span>
+                    <strong>Celular:</strong>
+                    <span class="color-text-a"><?php echo $ong['celular'] ?></span>
                   </li>
                   <li class="d-flex justify-content-between">
                     <strong>Email:</strong>
-                    <span class="color-text-a">annabella@example.com</span>
-                  </li>
-                  <li class="d-flex justify-content-between">
-                    <strong>Skype:</strong>
-                    <span class="color-text-a">Annabela.ge</span>
+                    <span class="color-text-a"><?php echo $ong['email'] ?></span>
                   </li>
                 </ul>
-                <div class="socials-a">
-                  <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <a href="#">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="#">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="#">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="#">
-                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="#">
-                        <i class="fa fa-dribbble" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </div>
             </div>
-            <div class="col-md-12 col-lg-4">
+            <!--<div class="col-md-12 col-lg-6">
               <div class="property-contact">
                 <form class="form-a">
                   <div class="row">
@@ -397,17 +373,18 @@
                           rows="8" required></textarea>
                       </div>
                     </div>
-                   
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-a">Send Message</button>
+                    </div>
                   </div>
                 </form>
               </div>
-            </div>
-          </div>-->
+            </div>-->
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <!--/ Property Single End /-->
 
     <!--/ footer Star /-->
     <section class="section-footer">
@@ -473,19 +450,10 @@
           </div>
           <div class="copyright-footer">
             <p class="copyright color-text-a">
-              &copy; Copyright
-              <span class="color-a">Amigo Solidário</span> Todos os direitos reservados.
+              &copy; 2019
+              <span class="color-a">AmigoSolidário.</span> Todos os direitos reservados.
             </p>
           </div>
-          <!--<div class="credits">
-            
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
-            
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-          </div>-->
         </div>
       </div>
     </div>

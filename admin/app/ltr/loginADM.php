@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <link href="../../dist/css/stylelogin.css" rel="stylesheet">
     <link href="../../dist/js/login.js" >
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/logo.jpg">
+    <title>AmigoSolidário</title>
     
 </head>
 

@@ -21,14 +21,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
-    <title>AmigoSolidario - Gerencial</title>
-    <!-- Custom CSS -->
+ 
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/logo.jpg">
+    <title>AmigoSolidário</title>
     <link href="../../dist/css/style.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     
@@ -43,68 +40,30 @@
     </div>
 
     <div id="main-wrapper" data-navbarbg="skin6" data-theme="light" data-layout="vertical" data-sidebartype="full" data-boxed-layout="full">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
         <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <div class="navbar-header" data-logobg="skin5">
-                    <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
                         <i class="ti-menu ti-close"></i>
                     </a>
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
                     <div class="navbar-brand">
-                    <a href="indexAdm.php" class="logo">
-                            <!-- Logo icon -->
-                            <b class="logo-icon">
-                                <!--<h4 class="page-title">AmigoSolidário</h4>-->
-                                AmigoSolidário
-                                <!--<img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />-->
-                                 
-                                <!--<img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />-->
-                            </b>
-                            <!--End Logo icon -->
-                            <!-- Logo text -->
-                            <!--<span class="logo-text">
-                                 dark Logo text 
-                                <img src="../../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                                Light Logo text 
-                                <img src="../../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                            </span>-->
+                        <a href="indexAdm.php" class="logo">
+                            <b class="logo-icon">AmigoSolidário</b>
                         </a>
                     </div>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Toggle which is visible on mobile only -->
-                    <!-- ============================================================== -->
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti-more"></i>
                     </a>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
                     
                 </div>
             </nav>
-        </header>-->
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+        </header>
+
         <aside class="left-sidebar" data-sidebarbg="skin5">
-            <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
@@ -145,19 +104,16 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="logout.php" aria-expanded="false" >
-                                <i class="fas fa-list"></i>
+                                <i class="fas fa-sign-out-alt"></i>
                                 <span class="hide-menu">Logout</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
-                <!-- End Sidebar navigation -->
             </div>
-            <!-- End Sidebar scroll-->
         </aside>
 
         <div class="page-wrapper">
-
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
@@ -177,6 +133,16 @@
                     </div>
                 </div>
             </div>
+            
+            <?php
+                $endereco_complet = $ong ['endereco'];
+                $array_endereco = preg_split('/\,/', $endereco_complet);
+                $logradouro = $array_endereco[0];
+                $numero = $array_endereco[1];
+                $bairro = $array_endereco[2];
+                $cidade = $array_endereco[3];
+                $cep = $array_endereco[4];
+            ?>
 
             <div class="container-fluid">
                 <div class="row">
@@ -188,41 +154,55 @@
                                     <input type="text" class="form-control" name="nome" value="<?php echo $ong ['nome_fantasia']?>">
                                 </div>
                                 <div class="form-group">
-                                    <label>Ano de Fundação</label>
-                                    <input type="text" class="form-control" name="ano" value="<?php echo $ong ['ano_fundacao']?>">
+                                    <label for="example-email">Email <span class="help"> Ex. "example@gmail.com"</span></label>
+                                    <input type="email" id="email" name="email" class="form-control" value="<?php echo $ong ['email']?>">
                                 </div>
                                 <div class="row">
-                                <div class="form-group col-10">
-                                    <label>Logradouro</label>
-                                    <input type="text" class="form-control" name="logradouro" placeholder="Rua Do Bem">
-                                </div>
-                                <div class="form-group col-2">
-                                    <label>Número</label>
-                                    <input type="number" class="form-control" name="numero" placeholder="2724">
-                                </div>
+                                    <div class="form-group col-4">
+                                        <label>Telefone</label>
+                                        <input type="text" id="telefone" name="telefone" class="form-control" value="<?php echo $ong ['telefone']?>">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label>Celular</label>
+                                        <input type="text" id="celular" name="celular" class="form-control" value="<?php echo $ong ['celular']?>">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label>Ano de Fundação</label>
+                                        <input type="text" class="form-control" name="ano" value="<?php echo $ong ['ano_fundacao']?>">
+                                    </div>
                                 </div>
                                 <div class="row">
-                                <div class="form-group col-4">
-                                    <label>Bairro</label>
-                                    <input type="text" class="form-control" name="bairro" placeholder="Centro">
+                                    <div class="form-group col-10">
+                                        <label>Logradouro</label>
+                                        <input type="text" class="form-control" name="logradouro" value="<?php echo $logradouro?>">
+                                    </div>
+                                    <div class="form-group col-2">
+                                        <label>Número</label>
+                                        <input type="number" class="form-control" name="numero" value="<?php echo $numero?>">
+                                    </div>
                                 </div>
-                                <div class="form-group col-4">
-                                    <label>Cidade</label>
-                                    <input type="text" class="form-control" name="cidade" placeholder="São Carlos">
-                                </div>
-                                <div class="form-group col-2">
-                                    <label>CEP</label>
-                                    <input type="text" class="form-control" name="cep" placeholder="13560-001">
-                                </div>
-                                <!--<div class="form-group col-2">
-                                    <label>Estado</label>
-                                    <select class="custom-select col-12" id="inlineFormCustomSelect" name="estado">
-                                        <option selected>Qual estado</option>
-                                        <option value="sp">SP</option>
-                                        <option value="pr">PR</option>
-                                        <option value="bh">BH</option>
-                                    </select>
-                                </div>-->
+                                <div class="row">
+                                    <div class="form-group col-4">
+                                        <label>Bairro</label>
+                                        <input type="text" class="form-control" name="bairro" value="<?php echo $bairro?>">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label>Cidade</label>
+                                        <input type="text" class="form-control" name="cidade" value="<?php echo $cidade?>">
+                                    </div>
+                                    <div class="form-group col-2">
+                                        <label>CEP</label>
+                                        <input type="text" class="form-control" name="cep" value="<?php echo $cep?>">
+                                    </div>
+                                    <!--<div class="form-group col-2">
+                                        <label>Estado</label>
+                                        <select class="custom-select col-12" id="inlineFormCustomSelect" name="estado">
+                                            <option selected>Qual estado</option>
+                                            <option value="sp">SP</option>
+                                            <option value="pr">PR</option>
+                                            <option value="bh">BH</option>
+                                        </select>
+                                    </div>-->
                                 </div>
                                 <div class="form-group">
                                     <label>Descrição/Quem somos</label>
@@ -269,25 +249,17 @@
             </div>
 
             <footer class="footer text-center">
-                Desenvolvido por Ana Paula Lima 
-                <a href="https://wrappixel.com"></a>.
+                © 2019 AmigoSolidário. Todos os direitos reservados.
             </footer>
-
         </div>
-
     </div>
 
     <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
     <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
     <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
     <script src="../../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
     <script src="../../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
     <script src="../../dist/js/custom.min.js"></script>
 </body>
 

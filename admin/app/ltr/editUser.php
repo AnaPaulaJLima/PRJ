@@ -22,14 +22,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
-    <title>AmigoSolidario - Gerencial</title>
-    <!-- Custom CSS -->
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/logo.jpg">
+    <title>AmigoSolidário</title>
     <link href="../../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
@@ -48,48 +44,25 @@
         <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <div class="navbar-header" data-logobg="skin5">
-                    <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
                         <i class="ti-menu ti-close"></i>
                     </a>
-                    
                     <div class="navbar-brand">
-                    <a href="indexAdm.php" class="logo">
-                            <!-- Logo icon -->
-                            <b class="logo-icon">
-                                <!--<h4 class="page-title">AmigoSolidário</h4>-->
-                                AmigoSolidário
-                                <!--<img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />-->
-                                 
-                                <!--<img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />-->
-                            </b>
-                            <!--End Logo icon -->
-                            <!-- Logo text -->
-                            <!--<span class="logo-text">
-                                 dark Logo text 
-                                <img src="../../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                                Light Logo text 
-                                <img src="../../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                            </span>-->
+                        <a href="indexAdm.php" class="logo">
+                            <b class="logo-icon">AmigoSolidário</b>
                         </a>
                     </div>
-                   
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti-more"></i>
                     </a>
                 </div>
-               
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
-                    
-                </div>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6"></div>
             </nav>
-        </header>-->
+        </header>
         
         <aside class="left-sidebar" data-sidebarbg="skin5">
-            <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
@@ -130,19 +103,16 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="logout.php" aria-expanded="false" >
-                                <i class="fas fa-list"></i>
+                                <i class="fas fa-sign-out-alt"></i>
                                 <span class="hide-menu">Logout</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
-                <!-- End Sidebar navigation -->
             </div>
-            <!-- End Sidebar scroll-->
         </aside>
         
         <div class="page-wrapper">
-            
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
@@ -164,7 +134,6 @@
             </div>
             
             <div class="container-fluid">
-               
                 <div class="row">                 
                     <div class="col-12">
                         <div class="card">
@@ -205,31 +174,21 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
-                </div>
-                
+                </div>  
             </div>
             
             <footer class="footer text-center">
-                Desenvolvido por Ana Paula Lima 
-                <a href="https://wrappixel.com"></a>.
+                © 2019 AmigoSolidário. Todos os direitos reservados.
             </footer>
-            
-        </div>
-        
+        </div> 
     </div>
    
     <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
     <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
     <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
     <script src="../../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
     <script src="../../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
     <script src="../../dist/js/custom.min.js"></script>
 </body>
 

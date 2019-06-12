@@ -5,36 +5,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>AmigoSolidário</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <!-- Favicons -->
-  <link href="#" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
+  <link rel="icon" type="image/png" sizes="16x16" href="admin/assets/images/logo.jpg">
+	<title>AmigoSolidário</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
-  <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="lib/animate/animate.min.css" rel="stylesheet">
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: EstateAgency
-    Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 
 <body>
@@ -69,13 +53,6 @@
           <!--<li class="nav-item">
           <a class="nav-link" href="blog-grid.html">Blog</a>
         </li>-->
-        <?php
-          if ( isset($_SESSION["usuarioNome"])) {
-          echo '<li class="nav-item">
-                  <a class="nav-link">Contribuir</a>
-              </li>';
-          }
-      ?>
         </ul>
       </div>
    
@@ -88,7 +65,7 @@
                   data-target="#modalLogin" aria-expanded="false">
                     <span class="nav-link">Login</span>
               </button>
-              <li class="nav-item"><a>ou</a></li>
+              <a class="nav-item">ou</a>
               <button type="button" class="btn btn-b-n" data-toggle="modal"
                 data-target="#modalCadastro" aria-expanded="false">
                   <span class="nav-link" aria-hidden="true">Cadastre-se</span>
@@ -96,12 +73,8 @@
                   ';
               } else {
               echo '
-                  <p class="nav-link">Bem vindo(a), ' . $_SESSION["usuarioNome"] .' </p>                                  
-                  <li class="nav-item">
+                    <p class="nav-link" style="padding-right: 20px">Bem vindo(a), ' . $_SESSION["usuarioNome"] .' </p>                                
                     <a class="nav-link" href="logout.php">Sair</a>
-                  </li>
-                  
-                    
                   ';
               }
           ?> 
@@ -188,7 +161,7 @@
     </div>
   </div>     
  <!-- /Modal Cadastro-->  
-  <!--/ Intro Single star /-->
+  
   <section class="intro-single">
     <div class="container">
       <div class="row">
@@ -212,15 +185,13 @@
       </div>
     </div>
   </section>
-  <!--/ Intro Single End /-->
-
-  <!--/ About Star /-->
+  
   <section class="section-about">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="about-img-box">
-            <img src="img/slide-about-1.jpg" alt="" class="img-fluid">
+            <img src="img/bondade.jpg" alt="" class="img-fluid">
           </div>
           <div class="sinse-box">
             <h3 class="sinse-title">AmigoSolidário
@@ -263,11 +234,7 @@
       </div>
     </div>
   </section>
-  <!--/ About End /-->
 
-  
-
-<!--/ footer Star /-->
 <section class="section-footer">
   <div class="container">
     <div class="row">
@@ -331,19 +298,10 @@
         </div>
         <div class="copyright-footer">
           <p class="copyright color-text-a">
-            &copy; Copyright
-            <span class="color-a">Amigo Solidário</span> Todos os direitos reservados.
+            &copy; 2019
+            <span class="color-a">AmigoSolidário.</span>Todos os direitos reservados.
           </p>
         </div>
-        <!--<div class="credits">
-          
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
-          
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>-->
       </div>
     </div>
   </div>

@@ -52,17 +52,6 @@ function verificaFields(){
         $debito = true;
     }
 
-    /*Condição do valor da doação */
-    /*if($valor == "30")
-        $valor = '30.00';
-    else if($valor == "50")
-        $valor = '50.00';
-    else if($valor == "50")
-        $valor = '100.00';
-    else if($valor == "50")
-        $valor = '150.00';*/
-
-
     $inserirPayment = "INSERT INTO pagamento ";
     $inserirPayment .= "(nome_cartao, numero_cartao, mes_vencimento, ano_vencimento, credito, debito) ";
     $inserirPayment .= "VALUES ";

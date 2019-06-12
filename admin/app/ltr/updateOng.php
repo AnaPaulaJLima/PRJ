@@ -9,6 +9,21 @@ function verificaFields(){
     }else{
       return false;
     }
+    if(isset($_POST["email"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_POST["telefone"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_POST["celular"]) ){
+      return true;
+    }else{
+      return false;
+    }
     if(isset($_POST["ano"]) ){
       return true;
     }else{
@@ -39,32 +54,31 @@ function verificaFields(){
     }else{
       return false;
     }
-  }
-  if(isset($_FILES["logradouro"]) ){
-    return true;
-  }else{
-    return false;
-  }
-  if(isset($_FILES["numero"]) ){
-    return true;
-  }else{
-    return false;
-  }
-  if(isset($_FILES["bairro"]) ){
-    return true;
-  }else{
-    return false;
-  }
-  if(isset($_FILES["cidade"]) ){
-    return true;
-  }else{
-    return false;
-  }
-  if(isset($_FILES["cep"]) ){
-    return true;
-  }else{
-    return false;
-  }
+    if(isset($_FILES["logradouro"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["numero"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["bairro"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["cidade"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_FILES["cep"]) ){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   /*session_start();
@@ -86,6 +100,9 @@ function verificaFields(){
 
     $id = $_POST['id'];
     $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $celular = $_POST['celular'];
     $ano = $_POST['ano'];
     $descricao = $_POST['descricao'];
     $imagem_prin = $resultado_prin;
@@ -107,7 +124,8 @@ function verificaFields(){
 
     $update = "UPDATE ong SET nome_fantasia = '$nome', ano_fundacao = '$ano', ";
     $update .= "descricao = '$descricao', imagem_principal ='$imagem_prin', ";
-    $update .= "ativo = '$ativo', imagem_secundaria ='$imagem_sec1', video ='$video', endereco ='$enderecoCompleto'";
+    $update .= "ativo = '$ativo', imagem_secundaria ='$imagem_sec1', video ='$video',"; 
+    $update .= "endereco ='$enderecoCompleto', email = '$email', telefone = '$telefone', celular = '$celular' ";
     $update .= "WHERE ";
     $update .= "id = '$id'";
 

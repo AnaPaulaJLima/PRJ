@@ -8,14 +8,9 @@
 
     //Recebe as informações do form
     $nome = $_POST["nome"];
-    $sobrenome = $_POST["sobrenome"];
     $celular = $_POST["celular"];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-
-    //Concatenando as strings 
-
-    $nomeCompleto = $nome." ".$sobrenome;
 
     //Compara as informações do form com banco de dados
     $verifica = "SELECT * ";
@@ -29,8 +24,8 @@
 
     //Montando a query de insert 
     $register = "INSERT INTO usuario ";
-    $register .= "(nome, celular, email, senha) VALUES ";
-    $register .= "('{$nomeCompleto}', '{$celular}', '{$email}', '{$senha}')";
+    $register .= "(nome, celular, email, senha, ADMIN) VALUES ";
+    $register .= "('{$nome}', '{$celular}', '{$email}', '{$senha}', '0')";
 
     $acessoInsert =  mysqli_query($conecta, $register);
         if(!$acessoInsert){

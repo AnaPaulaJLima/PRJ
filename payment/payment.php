@@ -13,30 +13,25 @@
 	$ong = mysqli_fetch_assoc($ongs);
   }
 ?>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Doação</title>
-<!-- for-mobile-apps -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Payment Form Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href='//fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Alegreya+Sans:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-<script type="text/javascript" src="js/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Payment Form Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+			function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+	<link rel="icon" type="image/png" sizes="16x16" href="../admin/assets/images/logo.jpg">
+	<title>AmigoSolidário</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href='//fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Alegreya+Sans:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
 	<div class="main">
@@ -79,7 +74,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<script>
 									function valor(dinheiro){
-										var inputValor = document.getElementById('inputDinheiro').value = dinheiro;;
+										var inputValor = document.getElementById('inputDinheiroC').value = dinheiro;
+										var inputValor = document.getElementById('inputDinheiroD').value = dinheiro;
 									}
 								</script>
 								<div id="horizontalTab" style=" width: 100%; margin: 0px;">
@@ -128,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<div class="clear"></div>
 												</div>
 												<input type="hidden" class="form-control" name="id_ong" value="<?php echo $ID?>">
-												<input type="hidden" class="form-control" name="valor" id='inputDinheiro'>
+												<input type="hidden" class="form-control" name="valor" id='inputDinheiroC'>
 												<input type="hidden" class="form-control" name="tipo_payment" value="credito">
 												<input type="submit" value="DOAR">
 											</form>
@@ -167,17 +163,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 												<input type="hidden" class="form-control" name="id_ong" value="<?php echo $ID?>">
 												<input type="hidden" class="form-control" name="tipo_payment" value="debito">
-
-
+												<input type="hidden" class="form-control" name="valor" id='inputDinheiroD'>	
 												<input type="submit" value="DOAR">
 											</form>
 											<div class="single-bottom">
-													<ul>
-														<li>
-															<input type="checkbox"  id="brand" value="">
-															<label for="brand"><span></span>By checking this box, I agree to the Terms & Conditions & Privacy Policy.</label>
-														</li>
-													</ul>
 											</div>
 										</div>	
 									</div>
@@ -186,7 +175,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>	
 
 		</div>
-		<p class="footer">Copyright © 2016 Payment Form Widget. All Rights Reserved | Template by <a href="https://w3layouts.com/" target="_blank">w3layouts</a></p>
+		<p class="footer">© 2019 AmigoSolidário. Todos os direitos reservados.</p>
 	</div>
 </body>
 </html>

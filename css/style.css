@@ -1758,6 +1758,7 @@ footer .credits {
   background-color: #2eca6a;
   color: #ffffff;
   border-radius: 0;
+  margin-left: 10px;
 }
 
 .btn.btn-b-n:hover {

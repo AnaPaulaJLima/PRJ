@@ -9,6 +9,21 @@ function verificaFields(){
     }else{
       return false;
     }
+    if(isset($_POST["email"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_POST["telefone"]) ){
+      return true;
+    }else{
+      return false;
+    }
+    if(isset($_POST["celular"]) ){
+      return true;
+    }else{
+      return false;
+    }
     if(isset($_POST["ano"]) ){
       return true;
     }else{
@@ -84,6 +99,9 @@ function verificaFields(){
     $mensagem_video = $resultado_video[0];
 
     $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $celular = $_POST['celular'];
     $ano = $_POST['ano'];
     $descricao = $_POST['descricao'];
     $imagem_prin = $resultado_prin;
@@ -104,9 +122,10 @@ function verificaFields(){
         $ativo = false;
 
     $inserir = "INSERT INTO ong ";
-    $inserir .= "(nome_fantasia, ano_fundacao, descricao, imagem_principal, ativo, imagem_secundaria, video, endereco) ";
+    $inserir .= "(nome_fantasia, ano_fundacao, descricao, imagem_principal, ativo, imagem_secundaria, ";
+    $inserir .= "video, endereco, email, celular, telefone) ";
     $inserir .= "VALUES ";
-    $inserir .= "('$nome','$ano', '$descricao','$imagem_prin','$ativo','$imagem_sec1','$video', '$enderecoCompleto')";
+    $inserir .= "('$nome','$ano', '$descricao','$imagem_prin','$ativo','$imagem_sec1','$video', '$enderecoCompleto', '$email', '$telefone', '$celular')";
 
       $queryInserir = mysqli_query($conecta, $inserir);
       if(!$queryInserir) {
