@@ -178,7 +178,7 @@
                                     </div>
                                     <div class="form-group col-2">
                                         <label>Número</label>
-                                        <input type="number" class="form-control" name="numero" value="<?php echo $numero?>">
+                                        <input type="text" class="form-control" name="numero" value="<?php echo $numero?>">
                                     </div>
                                 </div>
                                 <div class="row">

@@ -65,12 +65,14 @@ function verificaFields(){
         $id = mysqli_insert_id($conecta);
         $id_payment = $id;
 
+        date_default_timezone_set('America/Sao_Paulo');
         $hora_doacao = date('H:i:s');
+        $data_doacao = date('Y-m-d');
 
         $inserirDoacao = "INSERT INTO doacao ";
-        $inserirDoacao .= "(id_ong, id_usuario, valor, tipo_pagamento, hora) ";
+        $inserirDoacao .= "(id_ong, id_usuario, valor, tipo_pagamento, hora, data) ";
         $inserirDoacao .= "VALUES ";
-        $inserirDoacao .= "('$id_ong', '$id_usuario', '$valor', '$id_payment', '$hora_doacao')";
+        $inserirDoacao .= "('$id_ong', '$id_usuario', '$valor', '$id_payment', '$hora_doacao', '$data_doacao')";
 
         $queryInserirD = mysqli_query($conecta, $inserirDoacao);
         if(!$queryInserirD) {

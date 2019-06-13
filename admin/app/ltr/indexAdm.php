@@ -4,12 +4,46 @@
   require_once("connection.php");
 
   $ongs = "SELECT * FROM ONG where ativo = '1';";
-
   $query = $conecta->query($ongs);
   if(!$query) {
       die("falha na consulta ao banco");   
   }
+
+ $busca = "SELECT AVG(valor) AS media FROM DOACAO;";
+  $media = $conecta->query($busca);
+  if(!$media) {
+      die("falha na consulta ao banco");   
+  }else{
+    $mediaDoacao = mysqli_fetch_assoc($media);
+  }
     
+    $buscaTotal = "SELECT COUNT(id) AS total FROM ONG;";
+    $total = $conecta->query($buscaTotal);
+    if(!$total) {
+        die("falha na consulta ao banco");   
+    }else{
+        $totalOng = mysqli_fetch_assoc($total);
+    }
+
+    $buscaAtiva = "SELECT COUNT(id) AS ativa FROM ONG where ativo = '1';";
+    $ativo = $conecta->query($buscaAtiva);
+    if(!$ativo) {
+        die("falha na consulta ao banco");   
+    }else{
+        $ongsAtivas = mysqli_fetch_assoc($ativo);
+    }
+
+    $buscaDesativo = "SELECT COUNT(id) AS desativa FROM ONG where ativo = '0';";
+    $desativo = $conecta->query($buscaDesativo);
+    if(!$desativo) {
+        die("falha na consulta ao banco");   
+    }else{
+        $ongsDesativadas = mysqli_fetch_assoc($desativo);
+    }
+
+  
+    
+  
 ?>
 
 <!DOCTYPE html>
@@ -53,37 +87,6 @@
                     </a>
                 </div>
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
-                    <!--<ul class="navbar-nav float-left mr-auto">
-                        
-                        <li class="nav-item search-box">
-                            <a class="nav-link waves-effect waves-dark" href="javascript:void(0)">
-                                <div class="d-flex align-items-center">
-                                    <i class="mdi mdi-magnify font-20 mr-1"></i>
-                                    <div class="ml-1 d-none d-sm-block">
-                                        <span>Search</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <form class="app-search position-absolute">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter">
-                                <a class="srh-btn">
-                                    <i class="ti-close"></i>
-                                </a>
-                            </form>
-                        </li>
-                    </ul>-->
-                    <!--<ul class="navbar-nav float-right">
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
-                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
-                            </div>
-                        </li>
-                        
-                    </ul>-->
                 </div>
             </nav>
         </header>
@@ -172,7 +175,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title m-b-5">Media de Doações</h5>
-                                <h3 class="font-light">$769.08</h3>
+                                <h3 class="font-light"><?php $media = $mediaDoacao['media'];
+                                                            $media = number_format($media, 2, '.', '');
+                                                            echo  $media?></h3>
                                 <div class="m-t-20 text-center">
                                     <div id="earnings"></div>
                                 </div>
@@ -180,17 +185,17 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title m-b-0">Ongs</h4>
-                                <h2 class="font-light">35,658 <!--<span class="font-16 text-success font-medium">+23%</span>--></h2>
+                                <h4 class="card-title m-b-0">Total Ongs</h4>
+                                <h2 class="font-light"><?php echo $totalOng['total']?></h2>
                                 <div class="m-t-30">
                                     <div class="row text-center">
                                         <div class="col-6 border-right">
-                                            <h4 class="m-b-0">58%</h4>
-                                            <span class="font-14 text-muted">Novas Ongs</span>
+                                            <span class="font-16 text-success font-medium"><?php echo $ongsAtivas['ativa']?></span>
+                                            <h6 class="font-14 text-muted">Ongs Ativas</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h4 class="m-b-0">42%</h4>
-                                            <span class="font-14 text-muted">Ongs Desativadas</span>
+                                            <span class="label label-rounded label-danger"><?php echo $ongsDesativadas['desativa']?></span>
+                                            <h6 class="font-14 text-muted">Ongs Desativadas</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -227,192 +232,13 @@
                                             </tr> 
                                             <?php } ?>  
                                         </tr>
-                                        <!--<tr>
-                                            
-                                            <td class="txt-oflo">Real Homes WP Theme</td>
-                                            <td><span class="label label-info label-rounded">EXTENDED</span></td>
-                                            <td class="txt-oflo">April 19, 2017</td>
-                                            <td><span class="font-medium">$1250</span></td>
-                                        </tr>
-                                        <tr>
-                                            
-                                            <td class="txt-oflo">Ample Admin</td>
-                                            <td><span class="label label-purple label-rounded">Tax</span></td>
-                                            <td class="txt-oflo">April 19, 2017</td>
-                                            <td><span class="font-medium">$1250</span></td>
-                                        </tr>-->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--<div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Recent Comments</h4>
-                            </div>
-                            <div class="comment-widgets" style="height:430px;">
-                                <div class="d-flex flex-row comment-row m-t-0">
-                                    <div class="p-2">
-                                        <img src="../../assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle">
-                                    </div>
-                                    <div class="comment-text w-100">
-                                        <h6 class="font-medium">James Anderson</h6>
-                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                                        <div class="comment-footer">
-                                            <span class="text-muted float-right">April 14, 2016</span>
-                                            <span class="label label-rounded label-primary">Pending</span>
-                                            <span class="action-icons">
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-pencil-alt"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-check"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-heart"></i>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="d-flex flex-row comment-row">
-                                    <div class="p-2">
-                                        <img src="../../assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle">
-                                    </div>
-                                    <div class="comment-text active w-100">
-                                        <h6 class="font-medium">Michael Jorden</h6>
-                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                                        <div class="comment-footer ">
-                                            <span class="text-muted float-right">April 14, 2016</span>
-                                            <span class="label label-success label-rounded">Approved</span>
-                                            <span class="action-icons active">
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-pencil-alt"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="icon-close"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-heart text-danger"></i>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row comment-row">
-                                    <div class="p-2">
-                                        <img src="../../assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle">
-                                    </div>
-                                    <div class="comment-text w-100">
-                                        <h6 class="font-medium">Johnathan Doeting</h6>
-                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                                        <div class="comment-footer">
-                                            <span class="text-muted float-right">April 14, 2016</span>
-                                            <span class="label label-rounded label-danger">Rejected</span>
-                                            <span class="action-icons">
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-pencil-alt"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-check"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-heart"></i>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row comment-row m-t-0">
-                                    <div class="p-2">
-                                        <img src="../../assets/images/users/2.jpg" alt="user" width="50" class="rounded-circle">
-                                    </div>
-                                    <div class="comment-text w-100">
-                                        <h6 class="font-medium">Steve Jobs</h6>
-                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                                        <div class="comment-footer">
-                                            <span class="text-muted float-right">April 14, 2016</span>
-                                            <span class="label label-rounded label-primary">Pending</span>
-                                            <span class="action-icons">
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-pencil-alt"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-check"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-heart"></i>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Temp Guide</h4>
-                                <div class="d-flex align-items-center flex-row m-t-30">
-                                    <div class="display-5 text-info"><i class="wi wi-day-showers"></i> <span>73<sup>°</sup></span></div>
-                                    <div class="m-l-10">
-                                        <h3 class="m-b-0">Saturday</h3><small>Ahmedabad, India</small>
-                                    </div>
-                                </div>
-                                <table class="table no-border mini-table m-t-20">
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-muted">Wind</td>
-                                            <td class="font-medium">ESE 17 mph</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Humidity</td>
-                                            <td class="font-medium">83%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Pressure</td>
-                                            <td class="font-medium">28.56 in</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-muted">Cloud Cover</td>
-                                            <td class="font-medium">78%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <ul class="row list-style-none text-center m-t-30">
-                                    <li class="col-3">
-                                        <h4 class="text-info"><i class="wi wi-day-sunny"></i></h4>
-                                        <span class="d-block text-muted">09:30</span>
-                                        <h3 class="m-t-5">70<sup>°</sup></h3>
-                                    </li>
-                                    <li class="col-3">
-                                        <h4 class="text-info"><i class="wi wi-day-cloudy"></i></h4>
-                                        <span class="d-block text-muted">11:30</span>
-                                        <h3 class="m-t-5">72<sup>°</sup></h3>
-                                    </li>
-                                    <li class="col-3">
-                                        <h4 class="text-info"><i class="wi wi-day-hail"></i></h4>
-                                        <span class="d-block text-muted">13:30</span>
-                                        <h3 class="m-t-5">75<sup>°</sup></h3>
-                                    </li>
-                                    <li class="col-3">
-                                        <h4 class="text-info"><i class="wi wi-day-sprinkle"></i></h4>
-                                        <span class="d-block text-muted">15:30</span>
-                                        <h3 class="m-t-5">76<sup>°</sup></h3>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-   
-            </div> -->
+            </div>
             <footer class="footer text-center">
                 © 2019 AmigoSolidário. Todos os direitos reservados.
             </footer>

@@ -1,7 +1,7 @@
 <?php
   session_start();
   require_once("connection/connection.php");
-  $query1 = "SELECT * FROM ong WHERE id = '1';";
+  $query1 = "SELECT * FROM ong WHERE id = '31';";
 
   $result1 = $conecta->query($query1);
   if(!$result1) {
@@ -10,7 +10,7 @@
     $ongHospital = mysqli_fetch_assoc($result1);
   }
 
-  $query2 = "SELECT * FROM ong WHERE id = '2';";
+  $query2 = "SELECT * FROM ong WHERE id = '32';";
 
   $result2 = $conecta->query($query2);
   if(!$result2) {
@@ -19,7 +19,7 @@
     $ongFrasol = mysqli_fetch_assoc($result2);
   }
 
-  $query3 = "SELECT * FROM ong WHERE id = '3';";
+  $query3 = "SELECT * FROM ong WHERE id = '33';";
 
   $result3 = $conecta->query($query3);
   if(!$result3) {

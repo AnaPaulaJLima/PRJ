@@ -54,6 +54,7 @@ CREATE TABLE `doacao`(
     `valor`         FLOAT,
     `tipo_pagamento` INTEGER,       
     `hora`          TIME,
+    `data`          date,
 
     FOREIGN KEY(`id_usuario`) REFERENCES `usuario`(`id`),
     FOREIGN KEY(`id_ong`) REFERENCES `ong` (`id`),

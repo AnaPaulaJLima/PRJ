@@ -206,7 +206,15 @@
     </div>
     <?php
       if( !isset($_SESSION["usuarioNome"])) {
-      echo '<h1>Para realizar uma doação é necessário esta logado no site </h1>';
+      echo '
+      <div class="row" >
+          <div class="col-md-2"></div>
+            <div class="col-md-5" >   
+            </div>
+          <div class="col-md-4" >
+          <h6>OBS.: Para realizar uma doação é necessário esta logado no site </h6>
+          </div>
+          </div>  ';
       } else {
       echo '
         <div class="row" >
@@ -305,7 +313,12 @@
           <br>
           <?php
               if( !isset($_SESSION["usuarioNome"])) {
-              echo '<h1>Para realizar uma doação é necessário esta logado no site </h1>';
+              echo '<div class="row" >
+              <div class="col-md-12 col-lg-3"></div>
+              <div class="col-md-12 col-lg-8" >
+                    <h6>OBS.: Para realizar uma doação é necessário esta logado no site </h6>
+                    </div>
+                </div>  ';
               } else {
               echo '
                 <div class="row" >
