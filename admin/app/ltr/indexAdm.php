@@ -41,9 +41,13 @@
         $ongsDesativadas = mysqli_fetch_assoc($desativo);
     }
 
-  
-    
-  
+    $buscaDoacao = "SELECT o.nome_fantasia AS nomeOng, o.ativo As ativo, d.data AS dataDoacao, d.valor AS valor, p.credito 
+                    AS credito, p.debito AS debito FROM doacao d INNER JOIN ONG o on d.id_ong = o.id 
+                    INNER JOIN pagamento p on d.tipo_pagamento = p.id;";
+    $doacao = $conecta->query($buscaDoacao);
+    if(!$doacao) {
+        die("falha na consulta ao banco");   
+    }
 ?>
 
 <!DOCTYPE html>
@@ -177,7 +181,7 @@
                                 <h5 class="card-title m-b-5">Media de Doações</h5>
                                 <h3 class="font-light"><?php $media = $mediaDoacao['media'];
                                                             $media = number_format($media, 2, '.', '');
-                                                            echo  $media?></h3>
+                                                            echo $media?></h3>
                                 <div class="m-t-20 text-center">
                                     <div id="earnings"></div>
                                 </div>
@@ -222,13 +226,15 @@
                                     <tbody>
                                         <tr>
                                         <?php 
-                                            while($listOng = mysqli_fetch_assoc($query)){ ?>
+                                            while($ongsDoacao = mysqli_fetch_assoc($doacao)){ ?>
                                             <tr>
-                                                <td class="txt-oflo"><?php echo $listOng['nome_fantasia'] ?></td>
-                                                <td><span class="label label-success label-rounded"><?php if($listOng['ativo'] == 1) ?>ATIVO</span> </td>
-                                                <td class="txt-oflo">April 18, 2017</td>
-                                                <td><span class="font-medium">$24</span></td>
-                                        
+                                                <td class="txt-oflo"><?php echo $ongsDoacao['nomeOng'] ?></td>
+                                                <td><span class="label label-success label-rounded"><?php if($ongsDoacao['ativo'] == 1) $ativo = "ATIVO"; echo $ativo ?></span> </td>
+                                                <td class="txt-oflo"><?php $data_complet = $ongsDoacao['dataDoacao'];
+                                                                            $array_data = preg_split('/\-/', $data_complet);
+                                                                            $data = $array_data[2] .'/' . $array_data[1] . '/' . $array_data[0];
+                                                                            echo $data?></td>
+                                                <td><span class="font-medium"><?php echo $ongsDoacao['valor'] ?></span></td>
                                             </tr> 
                                             <?php } ?>  
                                         </tr>

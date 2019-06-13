@@ -15,12 +15,13 @@ CREATE TABLE `usuario` (
     `email`	VARCHAR(255),
     `senha`	VARCHAR(255),
 	`nome`	VARCHAR(255),
-    `celular`	VARCHAR(255)
+    `celular`	VARCHAR(255), 
+    `admin`     BOOLEAN
     	
 );
 
-INSERT INTO usuario(email,senha,nome,celular) 
-    VALUES("paulinhasjlima@gmail.com","123456","Ana","99400-5564");
+INSERT INTO usuario(email,senha,nome,celular,admin) 
+    VALUES("paulinhasjlima@gmail.com","1234","Ana","99400-5564", '1');
 
 
 CREATE TABLE `ong`(
@@ -33,9 +34,9 @@ CREATE TABLE `ong`(
     `imagem_secundaria`  VARCHAR(255),
     `video`         VARCHAR(255), 
     `endereco`      VARCHAR(255),
-    `email` VARCHAR(100);
-    `telefone` VARCHAR(30);
-    `celular` VARCHAR(30);
+    `email` VARCHAR(100),
+    `telefone` VARCHAR(30),
+    `celular` VARCHAR(30)
 ); 
 
 INSERT INTO ong(nome_fantasia, ano_fundacao, descricao, ativo) 
@@ -82,3 +83,7 @@ UPDATE usuario SET ADMIN = 0 WHERE ID = 2;
 
 ALTER TABLE ong CHANGE imagem_sec1 imagem_secundaria VARCHAR(255),
 ALTER TABLE ong CHANGE imagem_sec2 video VARCHAR(255),
+
+SELECT o.nome_fantasia AS nomeOng, d.data AS dataDoacao, d.valor AS valor, p.credito 
+AS credito, p.debito AS debito FROM doacao d INNER JOIN ONG o on d.id_ong = o.id 
+INNER JOIN pagamento p on d.tipo_pagamento = p.id;
